@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VEXAR — Driver Safety, Reengineered</title>
+<meta name="description" content="VEXAR is building intelligent systems that understand driving in real time — preventing accidents, responding instantly, and redefining how safety works on the road.">
+<meta name="keywords" content="AI driver safety, crash detection technology, fleet safety systems, intelligent mobility solutions">
+<link rel="stylesheet" href="vexar.css">
+<style>
+/* ─── INDEX-SPECIFIC ─── */
+#hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+#hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-fog {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 75% 65% at 50% 50%, rgba(26,111,255,.06) 0%, transparent 65%),
+              linear-gradient(to bottom, rgba(3,5,7,.1) 0%, rgba(3,5,7,.05) 35%, rgba(3,5,7,.92) 100%);
+}
+.hero-body { position: relative; z-index: 2; max-width: 900px; padding: 0 5%; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: .6rem; letter-spacing: .3em; text-transform: uppercase; color: var(--blue);
+  margin-bottom: 2rem;
+  opacity: 0; animation: aup .7s ease .3s forwards;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: ''; display: block; width: 22px; height: 1px; background: var(--blue); opacity: .5;
+}
+h1.hero-h {
+  font-family: var(--ff-d); font-size: clamp(3rem,8vw,6.5rem);
+  font-weight: 700; line-height: .97; letter-spacing: -.035em;
+  color: var(--white); margin-bottom: 1.8rem;
+  opacity: 0; animation: aup .85s ease .55s forwards;
+}
+.hero-sub {
+  font-size: clamp(.95rem,2vw,1.15rem); font-weight: 300;
+  color: rgba(239,244,255,.6); max-width: 540px;
+  margin: 0 auto 2.8rem; line-height: 1.85;
+  opacity: 0; animation: aup .85s ease .75s forwards;
+}
+.hero-ctas {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  opacity: 0; animation: aup .85s ease .95s forwards;
+}
+.hero-scroll {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 2;
+  opacity: 0; animation: fadein 1s ease 1.5s forwards;
+}
+.hero-scroll span { font-size: .58rem; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); }
+.scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, var(--blue), transparent); animation: pulse 2.2s ease infinite; }
+@keyframes aup { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadein { to { opacity: 1; } }
+@keyframes pulse { 0%,100%{opacity:.35}50%{opacity:1} }
+.hero-eyebrow, h1.hero-h, .hero-sub { transform: translateY(24px); }
+
+/* ─── ABOUT TEASER ─── */
+#about { background: var(--bg2); position: relative; }
+#about::before { content: ''; position: absolute; top: 0; left: 6%; right: 6%; height: 1px; background: var(--border); }
+.about-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 6rem; align-items: center; }
+.about-right .prose + .prose { margin-top: 1.4rem; }
+.about-right .prose.lead-in {
+  font-size: 1.1rem; font-weight: 300;
+  color: rgba(239,244,255,.75); line-height: 1.75; margin-bottom: .5rem;
+}
+.about-right .prose.accent-line {
+  font-family: var(--ff-d); font-size: 1.2rem; font-weight: 600;
+  color: var(--white); letter-spacing: -.01em; margin: .8rem 0 1.4rem;
+}
+
+/* ─── PROBLEM ─── */
+#problem { background: var(--bg); position: relative; overflow: hidden; }
+.problem-glow {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(26,111,255,.04) 0%, transparent 65%);
+  pointer-events: none;
+}
+.problem-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 6rem; align-items: start; }
+.problem-verse {
+  padding: 2.5rem; border: 1px solid var(--border); background: var(--bg2);
+  border-left: 2px solid var(--blue);
+}
+.problem-verse p {
+  font-family: var(--ff-d); font-size: 1rem; font-weight: 400;
+  color: var(--text); line-height: 2.1; letter-spacing: .01em;
+}
+.problem-verse p.bold { color: var(--white); font-weight: 600; font-size: 1.05rem; }
+.problem-verse p.dim { color: var(--muted); }
+.problem-verse p.closer { color: var(--blue); font-weight: 600; margin-top: .5rem; }
+.stat-col { display: flex; flex-direction: column; gap: 0; }
+.stat-item {
+  padding: 2rem 2.2rem; border-left: 1px solid var(--border);
+  transition: border-left-color .3s; cursor: default;
+}
+.stat-item:not(:last-child) { border-bottom: 1px solid var(--border); }
+.stat-item:hover { border-left-color: var(--blue); }
+.stat-n { font-family: var(--ff-d); font-size: clamp(2rem,4vw,3rem); font-weight: 700; color: var(--white); line-height: 1; margin-bottom: .3rem; }
+.stat-n b { color: var(--blue); font-weight: 700; }
+.stat-l { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
+
+/* ─── WHY ─── */
+#why { background: var(--bg2); }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.why-verse {
+  display: flex; flex-direction: column; gap: .4rem;
+}
+.why-verse p {
+  font-family: var(--ff-d); font-size: clamp(1rem,2vw,1.15rem);
+  color: rgba(239,244,255,.55); line-height: 1.9; font-weight: 300;
+}
+.why-verse p.hl { color: var(--white); font-weight: 500; }
+.why-verse p.blue { color: var(--blue); font-weight: 600; font-size: 1rem; }
+.why-pull {
+  font-family: var(--ff-d); font-size: clamp(2rem,4vw,3rem);
+  font-weight: 700; line-height: 1.12; letter-spacing: -.025em;
+  color: transparent; -webkit-text-stroke: 1px rgba(26,111,255,.2);
+}
+.why-pull strong { color: var(--white); -webkit-text-stroke: 0; display: block; }
+
+/* ─── BUILDING ─── */
+#building { background: var(--bg); }
+.build-header { max-width: 580px; margin-bottom: 3.5rem; }
+.pillars-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.pillar-n { font-size: .58rem; letter-spacing: .25em; color: rgba(26,111,255,.4); display: block; margin-bottom: 1.6rem; font-family: var(--ff-d); }
+
+/* ─── WHO ─── */
+#who { background: var(--bg2); }
+.who-header { text-align: center; margin-bottom: 3.5rem; }
+.who-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.who-card {
+  background: var(--bg2); padding: 2.8rem 2.2rem; text-align: center;
+  transition: background .3s;
+}
+.who-card:hover { background: rgba(26,111,255,.03); }
+.who-ico {
+  width: 52px; height: 52px; border: 1px solid var(--border); background: var(--blue-b);
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 1.6rem;
+  transition: all .3s;
+}
+.who-card:hover .who-ico { border-color: var(--blue); background: var(--blue-d); }
+.who-ico svg { width: 20px; height: 20px; stroke: var(--blue); fill: none; stroke-width: 1.5; }
+.who-card h3 { font-family: var(--ff-d); font-size: 1.1rem; font-weight: 600; color: var(--white); margin-bottom: .5rem; }
+.who-card p { font-size: .85rem; color: var(--muted); line-height: 1.75; }
+
+/* ─── VISION ─── */
+#vision {
+  background: var(--bg); text-align: center;
+  padding: clamp(6rem,12vh,10rem) 6%; position: relative; overflow: hidden;
+}
+#vision::before, #vision::after {
+  content: ''; position: absolute; left: 6%; right: 6%; height: 1px; background: var(--border);
+}
+#vision::before { top: 0; }
+#vision::after  { bottom: 0; }
+.vision-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 65% 75% at 50% 50%, rgba(26,111,255,.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.vision-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+.vision-verse { margin-bottom: 2.5rem; }
+.vision-verse p {
+  font-family: var(--ff-d); font-size: clamp(1rem,2.2vw,1.25rem);
+  color: rgba(239,244,255,.45); line-height: 2.2; font-weight: 300;
+}
+.vision-verse p.hl { color: rgba(239,244,255,.75); }
+.vision-verse p.blue { color: var(--blue); font-weight: 500; }
+.vision-verse p.end { color: var(--white); font-weight: 600; margin-top: .5rem; }
+
+/* ─── CRED ─── */
+#cred { background: var(--bg2); }
+.cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.sigs { display: flex; flex-direction: column; gap: 1px; background: var(--border); margin-top: 2rem; }
+.sig {
+  background: var(--bg2); display: flex; align-items: flex-start; gap: 1.2rem;
+  padding: 1.5rem 1.4rem; border-left: 2px solid transparent;
+  transition: border-left-color .3s, background .3s;
+}
+.sig:hover { border-left-color: var(--blue); background: var(--surface); }
+.sig-dot { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; flex-shrink: 0; margin-top: .55rem; }
+.sig-text h5 { font-family: var(--ff-d); font-size: .92rem; font-weight: 600; color: var(--white); margin-bottom: .25rem; }
+.sig-text p  { font-size: .82rem; color: var(--muted); line-height: 1.65; }
+.badges { display: flex; flex-direction: column; gap: .8rem; margin-top: 1.5rem; }
+.founders-note {
+  margin-top: 2.5rem; padding: 2rem;
+  border: 1px solid var(--border); background: var(--blue-b);
+}
+.founders-note blockquote {
+  font-size: .88rem; color: rgba(239,244,255,.6); line-height: 1.85;
+  font-style: italic; margin-bottom: .8rem;
+}
+.founders-note cite { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--blue); font-style: normal; }
+
+/* ─── CTA BAND ─── */
+#cta-band {
+  background: var(--bg);
+  padding: clamp(4rem,8vh,6rem) 6%;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.cta-band-inner { max-width: 700px; margin: 0 auto; }
+.cta-band-inner h2 { margin-bottom: 1rem; }
+.cta-band-inner p { margin-bottom: 2.5rem; color: var(--muted); }
+.cta-band-inner .hero-ctas { justify-content: center; }
+
+@media (max-width: 1024px) {
+  .about-grid, .problem-grid, .why-grid, .cred-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .why-pull { display: none; }
+}
+@media (max-width: 768px) {
+  .pillars-grid, .who-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="cur" id="C"></div>
+<div class="cur-r" id="CR"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo" aria-label="VEXAR — Home">
+    <img src="assets/logo-white.png" alt="VEXAR">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="technology.html">Technology</a></li>
+    <li><a href="vision.html">Vision</a></li>
+  </ul>
+  <a href="contact.html" class="nav-contact">Contact</a>
+  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob" id="mob">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="technology.html">Technology</a>
+  <a href="vision.html">Vision</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-fog"></div>
+  <div class="hero-body">
+    <p class="hero-eyebrow">AI Driver Safety · Intelligent Mobility</p>
+    <h1 class="hero-h">Driver safety,<br>reengineered.</h1>
+    <p class="hero-sub">VEXAR is building intelligent systems that understand driving in real time, preventing accidents, responding instantly, and redefining how safety works on the road.</p>
+    <div class="hero-ctas">
+      <a href="contact.html" class="btn-p">Work With Us</a>
+      <a href="contact.html" class="btn-s">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- WHAT IS VEXAR -->
+<section id="about">
+  <div class="si about-grid">
+    <div>
+      <span class="tag r">What is VEXAR</span>
+      <h2 class="display r">Intelligence built<br>into every <span class="acc">journey</span></h2>
+      <div class="rule r"></div>
+      <div class="r d1" style="margin-top: .5rem;">
+        <a href="about.html" class="btn-s" style="font-size:.7rem;">Learn More →</a>
+      </div>
+    </div>
+    <div class="about-right">
+      <p class="prose accent-line r">VEXAR is focused on one problem:</p>
+      <p class="prose lead-in r d1">Road safety still reacts too late.</p>
+      <p class="prose r d2">We're building systems that observe, understand, and respond to driving as it happens.  Not after something goes wrong.</p>
+      <p class="prose r d3">Our direction combines real-time intelligence, behavioral analysis, and automated response into a single layer of safety that can integrate across fleets, insurance, and everyday mobility.</p>
+      <div class="r d4" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:2rem;">
+        <span class="pill">Early Stage</span>
+        <span class="pill">Open for Pilots</span>
+        <span class="pill">Bengaluru, India</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section id="problem">
+  <div class="problem-glow"></div>
+  <div class="si">
+    <div class="problem-grid">
+      <div>
+        <span class="tag r">The Problem</span>
+        <h2 class="display r">The problem isn't<br>visibility. It's <span class="acc">timing.</span></h2>
+        <div class="rule r"></div>
+        <div class="problem-verse r d1">
+          <p>Modern vehicles generate data.</p>
+          <p>Dashcams record.</p>
+          <p>Telematics track.</p>
+          <p class="dim">&nbsp;</p>
+          <p>But none of it intervenes when it matters most.</p>
+          <p class="dim">&nbsp;</p>
+          <p class="bold">Accidents are still detected too late.</p>
+          <p class="bold">Decisions are still reactive.</p>
+          <p class="bold">Response is still delayed.</p>
+          <p class="dim">&nbsp;</p>
+          <p class="dim">Safety today is passive.</p>
+          <p class="dim">&nbsp;</p>
+          <p class="closer">That's the gap VEXAR exists to close.</p>
+        </div>
+      </div>
+      <div class="stat-col r d2">
+        <div class="stat-item">
+          <div class="stat-n">1.35<b>M</b></div>
+          <div class="stat-l">Lives lost on roads every year — globally</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-n">94<b>%</b></div>
+          <div class="stat-l">Of crashes caused by human behavioural factors</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-n">$1.8<b>T</b></div>
+          <div class="stat-l">Annual economic cost of road accidents worldwide</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-n">&lt;3<b>%</b></div>
+          <div class="stat-l">Fleet operators with AI-grade real-time safety monitoring</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section id="why">
+  <div class="si">
+    <div class="why-grid">
+      <div>
+        <span class="tag r">Why This Matters</span>
+        <h2 class="display r">Every delay<br>compounds <span class="acc">risk</span></h2>
+        <div class="rule r"></div>
+        <div class="why-verse r d1">
+          <p class="hl">Every delay compounds risk.</p>
+          <p>&nbsp;</p>
+          <p>A second too late in detection.</p>
+          <p>A missed pattern in behavior.</p>
+          <p>A system that observes but doesn't act.</p>
+          <p>&nbsp;</p>
+          <p class="hl">Road safety isn't just about information —<br>it's about intervention.</p>
+          <p>&nbsp;</p>
+          <p>At scale, this isn't just a technology problem.</p>
+          <p class="blue">It's a human one.</p>
+        </div>
+      </div>
+      <div class="why-pull r d2" aria-hidden="true">
+        Not faster<br>information.<br><strong>Faster action.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE'RE BUILDING -->
+<section id="building">
+  <div class="si">
+    <div class="build-header">
+      <span class="tag r">What We're Building</span>
+      <h2 class="display r">Four pillars of<br><span class="acc">intelligent safety</span></h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="card r">
+        <span class="pillar-n">01</span>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>Real-Time Driving Intelligence</h3>
+        <p>Systems that continuously interpret driving behavior, not just record it.</p>
+      </div>
+      <div class="card r d1">
+        <span class="pillar-n">02</span>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <h3>Crash Detection &amp; Response</h3>
+        <p>Immediate recognition of impact events with automated emergency signaling.</p>
+      </div>
+      <div class="card r d2">
+        <span class="pillar-n">03</span>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Behavioral Risk Analysis</h3>
+        <p>Understanding patterns that lead to accidents — before they happen.</p>
+      </div>
+      <div class="card r d3">
+        <span class="pillar-n">04</span>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <h3>Integrated Safety Layer</h3>
+        <p>A unified system designed to plug into fleets, insurers, and mobility platforms.</p>
+      </div>
+    </div>
+    <div class="r" style="margin-top:2.5rem; text-align:center;">
+      <a href="technology.html" class="btn-s">Explore Technology →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section id="who">
+  <div class="si">
+    <div class="who-header">
+      <span class="tag r">Who It's For</span>
+      <h2 class="display r">Designed for systems<br>that <span class="acc">move people</span></h2>
+    </div>
+    <div class="who-grid">
+      <div class="who-card r">
+        <div class="who-ico"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <h3>Fleets</h3>
+        <p>Reduce risk, monitor behavior, and move from reactive safety to real-time control.</p>
+      </div>
+      <div class="who-card r d1">
+        <div class="who-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Insurance</h3>
+        <p>Move beyond static risk models toward dynamic, behavior-based understanding.</p>
+      </div>
+      <div class="who-card r d2">
+        <div class="who-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <h3>Mobility Ecosystems</h3>
+        <p>Embed intelligence directly into the infrastructure of modern transportation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section id="cta-band">
+  <div class="cta-band-inner">
+    <span class="tag r" style="display:block;">Start a Conversation</span>
+    <h2 class="display r">Let's build the future<br>of <span class="acc">safer mobility</span></h2>
+    <p class="prose r d1">Open for fleet pilots, insurance collaboration, and strategic partnership.</p>
+    <div class="hero-ctas r d2">
+      <a href="contact.html" class="btn-p">Work With Us</a>
+      <a href="about.html" class="btn-s">Learn About VEXAR</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="ft-logo">
+      <img src="assets/logo-white.png" alt="VEXAR">
+      <p class="ft-tagline">VEXAR - Building intelligence into motion.</p>
+      <div class="ft-socials" style="margin-top:.8rem;">
+        <a href="#" class="soc" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" class="soc" aria-label="X"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+        <a href="#" class="soc" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+    </div>
+    <nav class="ft-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="technology.html">Technology</a>
+      <a href="vision.html">Vision</a>
+      <a href="contact.html">Contact</a>
+      <a href="admin.html" style="margin-top:.5rem;opacity:.3;font-size:.6rem;">Admin</a>
+    </nav>
+    <div class="ft-contact">
+      <a href="mailto:contact@vexartech.in">contact@vexartech.in</a>
+      <a href="tel:+919360498704">+91 93604 98704</a>
+      <a href="tel:+917550195718">+91 75501 95718</a>
+      <a href="https://vexartech.in" target="_blank">vexartech.in</a>
+      <span style="font-size:.72rem;color:var(--muted);margin-top:.4rem;line-height:1.6;">Prestige Atlanta, 80 Feet Rd<br>Koramangala, Bengaluru — 560034</span>
+    </div>
+  </div>
+  <div class="ft-copy">
+    <span>© 2026 VexarDrive Technologies Private Limited. All rights reserved.</span>
+    <span>AI Driver Safety · Crash Detection · Intelligent Mobility</span>
+  </div>
+</footer>
+
+<script src="vexar.js"></script>
+</body>
+</html>

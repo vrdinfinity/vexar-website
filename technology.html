@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technology — VEXAR</title>
+<meta name="description" content="VEXAR is building real-time driving intelligence, crash detection, behavioral risk analysis, and an integrated safety layer for modern mobility.">
+<link rel="stylesheet" href="vexar.css">
+<style>
+.pillars-full { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-top:3.5rem; }
+.pillar-full { background:var(--bg2); padding:3rem 2.8rem; position:relative; overflow:hidden; transition:background .3s; }
+.pillar-full:hover { background:var(--surface); }
+.pillar-full::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--blue); transform:scaleX(0); transform-origin:left; transition:transform .4s ease; }
+.pillar-full:hover::before { transform:scaleX(1); }
+.pillar-n { font-size:.58rem; letter-spacing:.25em; color:rgba(26,111,255,.4); display:block; margin-bottom:1.8rem; font-family:var(--ff-d); }
+.pillar-icon { width:46px; height:46px; border:1px solid var(--border); background:var(--blue-b); display:flex; align-items:center; justify-content:center; margin-bottom:1.6rem; transition:all .3s; }
+.pillar-full:hover .pillar-icon { border-color:rgba(26,111,255,.4); background:var(--blue-d); }
+.pillar-icon svg { width:20px; height:20px; stroke:var(--blue); fill:none; stroke-width:1.5; }
+.pillar-full h3 { font-family:var(--ff-d); font-size:1.3rem; font-weight:600; color:var(--white); margin-bottom:.7rem; letter-spacing:-.01em; }
+.pillar-full p { font-size:.88rem; color:var(--muted); line-height:1.8; }
+.who-section { background:var(--bg2); }
+.who-trio { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:3rem; }
+.who-c { background:var(--bg2); padding:2.8rem 2.2rem; text-align:center; transition:background .3s; }
+.who-c:hover { background:rgba(26,111,255,.03); }
+.who-ico { width:54px; height:54px; border:1px solid var(--border); background:var(--blue-b); display:flex; align-items:center; justify-content:center; margin:0 auto 1.6rem; transition:all .3s; }
+.who-c:hover .who-ico { border-color:var(--blue); background:var(--blue-d); }
+.who-ico svg { width:20px; height:20px; stroke:var(--blue); fill:none; stroke-width:1.5; }
+.who-c h3 { font-family:var(--ff-d); font-size:1.15rem; font-weight:600; color:var(--white); margin-bottom:.5rem; }
+.who-c p { font-size:.86rem; color:var(--muted); line-height:1.75; }
+@media(max-width:768px){ .pillars-full,.who-trio{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="cur" id="C"></div><div class="cur-r" id="CR"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="assets/logo-white.png" alt="VEXAR"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="technology.html">Technology</a></li>
+    <li><a href="vision.html">Vision</a></li>
+  </ul>
+  <a href="contact.html" class="nav-contact">Contact</a>
+  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob" id="mob">
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="technology.html">Technology</a><a href="vision.html">Vision</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main class="page">
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="background:linear-gradient(to bottom,rgba(26,111,255,.04) 0%,transparent 100%);">
+    <div class="si">
+      <span class="tag r" style="display:block;">What We're Building</span>
+      <h1 class="display r" style="max-width:700px;">Four pillars of<br><span class="acc">intelligent safety</span></h1>
+      <div class="rule r"></div>
+      <p class="lead r d1" style="margin-top:.5rem;">Not features. Not dashboards. Foundational systems designed to operate invisibly — and protect lives visibly.</p>
+    </div>
+  </div>
+
+  <!-- PILLARS -->
+  <section>
+    <div class="si">
+      <div class="pillars-full">
+        <div class="pillar-full r">
+          <span class="pillar-n">01</span>
+          <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3>Real-Time Driving Intelligence</h3>
+          <p>Systems that continuously interpret driving behavior, not just record it. VEXAR processes live sensor data to understand context, risk level, and behavioral anomalies as they occur — before they become incidents.</p>
+          <p style="margin-top:1rem;font-size:.82rem;color:rgba(68,85,102,.6);font-style:italic;">Not a dashcam. An intelligence layer.</p>
+        </div>
+        <div class="pillar-full r d1">
+          <span class="pillar-n">02</span>
+          <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <h3>Crash Detection &amp; Response</h3>
+          <p>Immediate recognition of impact events with automated emergency signaling. The system distinguishes minor incidents from critical events and initiates coordinated response protocols — in seconds, not minutes.</p>
+          <p style="margin-top:1rem;font-size:.82rem;color:rgba(68,85,102,.6);font-style:italic;">Detection in milliseconds. Response in seconds.</p>
+        </div>
+        <div class="pillar-full r d2">
+          <span class="pillar-n">03</span>
+          <div class="pillar-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h3>Behavioral Risk Analysis</h3>
+          <p>Understanding patterns that lead to accidents — before they happen. VEXAR identifies fatigue, distraction, aggression, and risk-prone habits through continuous behavioral modeling across time and context.</p>
+          <p style="margin-top:1rem;font-size:.82rem;color:rgba(68,85,102,.6);font-style:italic;">Predictive, not reactive.</p>
+        </div>
+        <div class="pillar-full r d3">
+          <span class="pillar-n">04</span>
+          <div class="pillar-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+          <h3>Integrated Safety Layer</h3>
+          <p>A unified system designed to plug into fleets, insurers, and mobility platforms. VEXAR is built to integrate — not replace — providing safety intelligence as infrastructure that operators can build upon.</p>
+          <p style="margin-top:1rem;font-size:.82rem;color:rgba(68,85,102,.6);font-style:italic;">Infrastructure, not a product add-on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec-divider"></div>
+
+  <!-- WHO IT'S FOR -->
+  <section class="who-section">
+    <div class="si">
+      <span class="tag r">Who It's For</span>
+      <h2 class="display r">Designed for systems<br>that <span class="acc">move people</span></h2>
+      <div class="rule r"></div>
+      <p class="prose r d1" style="max-width:560px;">VEXAR's systems are designed to integrate into existing operations — not ask organisations to rebuild around them.</p>
+      <div class="who-trio">
+        <div class="who-c r d1">
+          <div class="who-ico"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <h3>Fleets</h3>
+          <p>Reduce risk, monitor behavior, and move from reactive safety to real-time control. Every driver. Every journey.</p>
+        </div>
+        <div class="who-c r d2">
+          <div class="who-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Insurance</h3>
+          <p>Move beyond static risk models toward dynamic, behavior-based understanding. Smarter pricing. Faster claims.</p>
+        </div>
+        <div class="who-c r d3">
+          <div class="who-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+          <h3>Mobility Ecosystems</h3>
+          <p>Embed intelligence directly into the infrastructure of modern transportation. Safety as a platform layer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec-divider"></div>
+
+  <!-- CTA -->
+  <section style="text-align:center;">
+    <div class="si" style="max-width:680px;">
+      <span class="tag r" style="display:block;">Interested in a Pilot?</span>
+      <h2 class="display r">Let's build this<br><span class="acc">together</span></h2>
+      <p class="prose r d1" style="margin:.8rem auto 2.5rem;max-width:480px;color:var(--muted);">If you're working in fleets, insurance, or mobility infrastructure — we're open to conversations, pilots, and collaboration.</p>
+      <a href="contact.html" class="btn-p r d2">Get in Touch</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="ft">
+    <div class="ft-logo"><img src="assets/logo-white.png" alt="VEXAR"><p class="ft-tagline">VEXAR — Building intelligence into motion.</p></div>
+    <nav class="ft-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="technology.html">Technology</a><a href="vision.html">Vision</a><a href="contact.html">Contact</a></nav>
+    <div class="ft-contact"><a href="mailto:contact@vexartech.in">contact@vexartech.in</a><a href="tel:+919360498704">+91 93604 98704</a><a href="https://vexartech.in" target="_blank">vexartech.in</a></div>
+  </div>
+  <div class="ft-copy"><span>© 2026 VexarDrive Technologies Private Limited. All rights reserved.</span></div>
+</footer>
+<script src="vexar.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — VEXAR</title>
+<meta name="description" content="Partner with VEXAR. Reach out for fleet pilots, insurance collaboration, investment inquiries, or strategic partnerships.">
+<link rel="stylesheet" href="vexar.css">
+<style>
+.contact-layout { display:grid; grid-template-columns:1fr 1.2fr; gap:6rem; align-items:start; margin-top:3rem; }
+.contact-info { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+.ci { display:flex; gap:1rem; align-items:flex-start; }
+.ci-ic { width:38px; height:38px; flex-shrink:0; border:1px solid var(--border); background:var(--surface); display:flex; align-items:center; justify-content:center; }
+.ci-ic svg { width:14px; height:14px; stroke:var(--blue); fill:none; stroke-width:1.5; }
+.ci-body { display:flex; flex-direction:column; }
+.ci-label { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:.2rem; }
+.ci-val { font-size:.82rem; color:var(--text); line-height:1.6; }
+.ci-val a { color:var(--text); text-decoration:none; transition:color .2s; }
+.ci-val a:hover { color:var(--blue); }
+.form-panel { background:var(--bg2); border:1px solid var(--border); padding:2.8rem; }
+.form-panel h3 { font-family:var(--ff-d); font-size:1.1rem; font-weight:600; color:var(--white); margin-bottom:.4rem; letter-spacing:-.01em; }
+.form-panel p { font-size:.8rem; color:var(--muted); margin-bottom:2rem; }
+.fsub {
+  font-family:var(--ff-b); font-size:.75rem; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase;
+  background:var(--blue); color:#fff; border:1px solid var(--blue);
+  padding:1rem 2.2rem; cursor:pointer;
+  position:relative; overflow:hidden;
+  transition:transform .2s,box-shadow .2s,background .3s,border-color .3s;
+}
+.fsub::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent); transform:translateX(-100%); transition:transform .5s; }
+.fsub:hover::before { transform:translateX(100%); }
+.fsub:hover { transform:translateY(-2px); box-shadow:0 14px 42px rgba(26,111,255,.3); }
+.fsub:disabled { opacity:.6; cursor:not-allowed; transform:none; box-shadow:none; }
+.reach-band { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.reach-inner { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); }
+.reach-cell { background:var(--bg2); padding:2rem 2.2rem; display:flex; align-items:center; gap:1.2rem; transition:background .3s; }
+.reach-cell:hover { background:var(--surface); }
+.reach-cell svg { width:18px; height:18px; stroke:var(--blue); fill:none; stroke-width:1.5; flex-shrink:0; }
+.reach-cell div { display:flex; flex-direction:column; }
+.reach-cell span { font-size:.6rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:.25rem; }
+.reach-cell a, .reach-cell p { font-size:.83rem; color:var(--text); text-decoration:none; line-height:1.5; transition:color .2s; }
+.reach-cell a:hover { color:var(--blue); }
+@media(max-width:1024px){ .contact-layout{grid-template-columns:1fr;gap:3rem} }
+@media(max-width:768px){ .reach-inner{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="cur" id="C"></div><div class="cur-r" id="CR"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="assets/logo-white.png" alt="VEXAR"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="technology.html">Technology</a></li>
+    <li><a href="vision.html">Vision</a></li>
+  </ul>
+  <a href="contact.html" class="nav-contact">Contact</a>
+  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob" id="mob">
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="technology.html">Technology</a><a href="vision.html">Vision</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main class="page">
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="background:linear-gradient(to bottom,rgba(26,111,255,.04) 0%,transparent 100%);">
+    <div class="si">
+      <span class="tag r" style="display:block;">Contact</span>
+      <h1 class="display r" style="max-width:680px;">Let's build this<br><span class="acc">together</span></h1>
+      <div class="rule r"></div>
+      <p class="lead r d1" style="margin-top:.5rem;">If you're working on fleets, insurance, or mobility infrastructure — we're open to conversations, pilots, and collaboration. If you're exploring the future of intelligent safety — we should talk.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT LAYOUT -->
+  <section>
+    <div class="si">
+      <div class="contact-layout">
+        <!-- LEFT: INFO -->
+        <div>
+          <span class="tag r">Reach Us</span>
+          <h2 class="display r" style="font-size:clamp(1.6rem,3vw,2.4rem);max-width:380px;">Every conversation<br>starts somewhere.</h2>
+          <div class="rule r"></div>
+          <p class="prose r d1">We are actively looking for pilot partners, investors, and organisations who see what we see. Reach out directly — no forms required if you prefer.</p>
+
+          <div class="contact-info r d2">
+            <div class="ci">
+              <div class="ci-ic"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+              <div class="ci-body">
+                <span class="ci-label">Email</span>
+                <span class="ci-val"><a href="mailto:contact@vexartech.in">contact@vexartech.in</a></span>
+              </div>
+            </div>
+            <div class="ci">
+              <div class="ci-ic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.11 15 19.79 19.79 0 012.04 6.37 2 2 0 014 4h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+              <div class="ci-body">
+                <span class="ci-label">Phone</span>
+                <span class="ci-val">
+                  <a href="tel:+919360498704">+91 93604 98704</a><br>
+                  <a href="tel:+917550195718">+91 75501 95718</a>
+                </span>
+              </div>
+            </div>
+            <div class="ci">
+              <div class="ci-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+              <div class="ci-body">
+                <span class="ci-label">Website</span>
+                <span class="ci-val">
+                  <a href="https://vexartech.in" target="_blank">vexartech.in</a><br>
+                  <a href="https://vexartech.com" target="_blank">vexartech.com</a>
+                </span>
+              </div>
+            </div>
+            <div class="ci">
+              <div class="ci-ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div class="ci-body">
+                <span class="ci-label">Address</span>
+                <span class="ci-val">
+                  VexarDrive Technologies Private Limited<br>
+                  Prestige Atlanta, 80 Feet Rd, 1A Block<br>
+                  Koramangala, Bengaluru — 560034
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="r d3" style="margin-top:2.5rem;display:flex;gap:.6rem;flex-wrap:wrap;">
+            <a href="#" class="soc" aria-label="LinkedIn" style="width:38px;height:38px;"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="soc" aria-label="X" style="width:38px;height:38px;"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+            <a href="#" class="soc" aria-label="Instagram" style="width:38px;height:38px;"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+        </div>
+
+        <!-- RIGHT: FORM -->
+        <div class="r d1">
+          <div class="form-panel">
+            <h3>Send us a message</h3>
+            <p>We respond to every serious inquiry, typically within 24–48 hours.</p>
+            <form id="contact-form" class="form-wrap" novalidate>
+              <div class="form-row">
+                <div class="fg">
+                  <label for="f-name">Full Name <span style="color:var(--blue)">*</span></label>
+                  <input type="text" id="f-name" name="name" placeholder="Your name" required autocomplete="name">
+                </div>
+                <div class="fg">
+                  <label for="f-email">Email Address <span style="color:var(--blue)">*</span></label>
+                  <input type="email" id="f-email" name="email" placeholder="you@company.com" required autocomplete="email">
+                </div>
+              </div>
+              <div class="fg">
+                <label for="f-company">Company / Organisation</label>
+                <input type="text" id="f-company" name="company" placeholder="Your company" autocomplete="organization">
+              </div>
+              <div class="fg">
+                <label for="f-interest">Area of Interest</label>
+                <select id="f-interest" name="interest">
+                  <option value="" disabled selected>Select one</option>
+                  <option value="fleet-pilot">Fleet Pilot Partnership</option>
+                  <option value="insurance">Insurance Collaboration</option>
+                  <option value="investment">Investment Inquiry</option>
+                  <option value="partnership">Strategic Partnership</option>
+                  <option value="mobility">Mobility Ecosystem Integration</option>
+                  <option value="other">General Inquiry</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label for="f-message">Message <span style="color:var(--blue)">*</span></label>
+                <textarea id="f-message" name="message" placeholder="Tell us about your interest, organisation, or how you'd like to work together..." required></textarea>
+              </div>
+              <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+                <button type="submit" class="fsub" id="form-btn">Send Message</button>
+                <p class="form-note" id="form-msg"></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REACH BAND -->
+  <section class="reach-band" style="padding:0;">
+    <div class="si" style="padding:0;max-width:100%;">
+      <div class="reach-inner" style="max-width:1160px;margin:0 auto;">
+        <div class="reach-cell">
+          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <div>
+            <span>Fleet Operators</span>
+            <p>Open for pilot programmes and integration discussions</p>
+          </div>
+        </div>
+        <div class="reach-cell">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div>
+            <span>Insurance Partners</span>
+            <p>Exploring behavior-based risk data collaboration</p>
+          </div>
+        </div>
+        <div class="reach-cell">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
+          <div>
+            <span>Investors</span>
+            <p>Early-stage investment conversations welcome</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="ft">
+    <div class="ft-logo"><img src="assets/logo-white.png" alt="VEXAR"><p class="ft-tagline">VEXAR — Building intelligence into motion.</p></div>
+    <nav class="ft-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="technology.html">Technology</a><a href="vision.html">Vision</a><a href="contact.html">Contact</a></nav>
+    <div class="ft-contact">
+      <a href="mailto:contact@vexartech.in">contact@vexartech.in</a>
+      <a href="tel:+919360498704">+91 93604 98704</a>
+      <a href="tel:+917550195718">+91 75501 95718</a>
+      <a href="https://vexartech.in" target="_blank">vexartech.in</a>
+      <span style="font-size:.72rem;color:var(--muted);margin-top:.4rem;line-height:1.6;">Prestige Atlanta, 80 Feet Rd<br>Koramangala, Bengaluru — 560034</span>
+    </div>
+  </div>
+  <div class="ft-copy">
+    <span>© 2026 VexarDrive Technologies Private Limited. All rights reserved.</span>
+    <span>AI Driver Safety · Intelligent Mobility</span>
+  </div>
+</footer>
+<script src="vexar.js"></script>
+</body>
+</html>

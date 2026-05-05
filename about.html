@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — VEXAR</title>
+<meta name="description" content="VEXAR is an early-stage technology company focused on AI-driven driver safety, crash detection, and intelligent mobility systems.">
+<link rel="stylesheet" href="vexar.css">
+<style>
+.about-hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start; }
+.problem-block { background:var(--bg2); border-left:2px solid var(--blue); padding:2.5rem; margin-top:3rem; }
+.problem-block p { font-family:var(--ff-d); font-size:1rem; line-height:2.2; color:var(--text); }
+.problem-block p.hl { color:var(--white); font-weight:600; }
+.problem-block p.dim { color:var(--muted); }
+.problem-block p.closer { color:var(--blue); font-weight:600; }
+.matters-list { margin-top:2rem; display:flex; flex-direction:column; gap:2rem; }
+.matters-item { display:flex; gap:1.5rem; align-items:flex-start; }
+.matters-icon { width:42px; height:42px; border:1px solid var(--border); background:var(--blue-b); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all .3s; }
+.matters-item:hover .matters-icon { border-color:var(--blue); background:var(--blue-d); }
+.matters-icon svg { width:16px; height:16px; stroke:var(--blue); fill:none; stroke-width:1.5; }
+.matters-text h4 { font-family:var(--ff-d); font-size:.96rem; font-weight:600; color:var(--white); margin-bottom:.3rem; }
+.matters-text p { font-size:.85rem; color:var(--muted); line-height:1.75; }
+.cred-section { background:var(--bg2); }
+.cred-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+.sigs { display:flex; flex-direction:column; gap:1px; background:var(--border); }
+.sig { background:var(--bg2); display:flex; align-items:flex-start; gap:1.2rem; padding:1.5rem 1.4rem; border-left:2px solid transparent; transition:border-left-color .3s,background .3s; }
+.sig:hover { border-left-color:var(--blue); background:var(--surface); }
+.sig-dot { width:6px; height:6px; background:var(--blue); border-radius:50%; flex-shrink:0; margin-top:.55rem; }
+.sig-text h5 { font-family:var(--ff-d); font-size:.92rem; font-weight:600; color:var(--white); margin-bottom:.25rem; }
+.sig-text p { font-size:.82rem; color:var(--muted); line-height:1.65; }
+.founders-note { margin-top:2.5rem; padding:2rem; border:1px solid var(--border); background:var(--blue-b); }
+.founders-note blockquote { font-size:.88rem; color:rgba(239,244,255,.6); line-height:1.85; font-style:italic; margin-bottom:.8rem; }
+.founders-note cite { font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--blue); font-style:normal; }
+@media(max-width:1024px){ .about-hero-grid,.cred-inner{grid-template-columns:1fr;gap:3rem} }
+</style>
+</head>
+<body>
+<div class="cur" id="C"></div><div class="cur-r" id="CR"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="assets/logo-white.png" alt="VEXAR"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="technology.html">Technology</a></li>
+    <li><a href="vision.html">Vision</a></li>
+  </ul>
+  <a href="contact.html" class="nav-contact">Contact</a>
+  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob" id="mob">
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="technology.html">Technology</a><a href="vision.html">Vision</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main class="page">
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="background:linear-gradient(to bottom,rgba(26,111,255,.04) 0%,transparent 100%);">
+    <div class="si">
+      <span class="tag r" style="display:block;">About VEXAR</span>
+      <h1 class="display r" style="max-width:700px;">What is VEXAR</h1>
+      <div class="rule r"></div>
+    </div>
+  </div>
+
+  <!-- WHAT IS VEXAR -->
+  <section>
+    <div class="si about-hero-grid">
+      <div>
+        <p class="prose r" style="font-size:1.1rem;font-weight:300;color:rgba(239,244,255,.75);line-height:1.8;">
+          VEXAR is an early-stage technology company focused on one problem:
+        </p>
+        <p class="r d1" style="font-family:var(--ff-d);font-size:1.4rem;font-weight:700;color:var(--white);letter-spacing:-.02em;margin:.6rem 0 1.4rem;line-height:1.2;">
+          Road safety still reacts too late.
+        </p>
+        <p class="prose r d2">We're building systems that observe, understand, and respond to driving as it happens — not after something goes wrong.</p>
+        <p class="prose r d3">Our direction combines real-time intelligence, behavioral analysis, and automated response into a single layer of safety that can integrate across fleets, insurance, and everyday mobility.</p>
+        <div class="r d4" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:2rem;">
+          <span class="pill">Early Stage</span>
+          <span class="pill">Open for Pilots</span>
+          <span class="pill">Koramangala, Bengaluru</span>
+          <span class="pill">VexarDrive Technologies Pvt. Ltd.</span>
+        </div>
+      </div>
+      <div>
+        <div class="stat-grid r d1" style="margin-bottom:2rem;">
+          <div class="stat-cell">
+            <div class="stat-n">1.35<span>M</span></div>
+            <div class="stat-l">Road deaths annually</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-n">94<span>%</span></div>
+            <div class="stat-l">Caused by human error</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-n">$1.8<span>T</span></div>
+            <div class="stat-l">Global economic cost</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec-divider"></div>
+
+  <!-- THE PROBLEM -->
+  <section style="background:var(--bg2);">
+    <div class="si">
+      <span class="tag r">The Problem</span>
+      <h2 class="display r" style="max-width:640px;">The problem isn't visibility.<br>It's <span class="acc">timing.</span></h2>
+      <div class="rule r"></div>
+      <div class="problem-block r d1">
+        <p>Modern vehicles generate data.</p>
+        <p>Dashcams record.</p>
+        <p>Telematics track.</p>
+        <p class="dim">&nbsp;</p>
+        <p>But none of it intervenes when it matters most.</p>
+        <p class="dim">&nbsp;</p>
+        <p class="hl">Accidents are still detected too late.</p>
+        <p class="hl">Decisions are still reactive.</p>
+        <p class="hl">Response is still delayed.</p>
+        <p class="dim">&nbsp;</p>
+        <p class="dim">Safety today is passive.</p>
+        <p class="dim">&nbsp;</p>
+        <p class="closer">That's the gap VEXAR exists to close.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec-divider"></div>
+
+  <!-- WHY IT MATTERS -->
+  <section>
+    <div class="si">
+      <span class="tag r">Why This Matters</span>
+      <h2 class="display r" style="max-width:600px;">Every delay<br>compounds <span class="acc">risk.</span></h2>
+      <div class="rule r"></div>
+      <div class="matters-list">
+        <div class="matters-item r d1">
+          <div class="matters-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.11 15 19.79 19.79 0 012.04 6.37 2 2 0 014 4h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div class="matters-text">
+            <h4>A second too late in detection</h4>
+            <p>The window between a dangerous situation and a collision is often measured in fractions of a second. Current systems don't operate at that speed. VEXAR does.</p>
+          </div>
+        </div>
+        <div class="matters-item r d2">
+          <div class="matters-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="matters-text">
+            <h4>A missed pattern in behavior</h4>
+            <p>Accidents rarely come from nowhere. They come from patterns — driver fatigue, distraction, aggression — that build invisibly over time. Identifying them requires intelligence, not just recording.</p>
+          </div>
+        </div>
+        <div class="matters-item r d3">
+          <div class="matters-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="matters-text">
+            <h4>A system that observes but doesn't act</h4>
+            <p>Road safety isn't just about information — it's about intervention. At scale, this isn't just a technology problem. It's a human one. VEXAR is built to close that gap.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec-divider"></div>
+
+  <!-- CREDIBILITY -->
+  <section class="cred-section">
+    <div class="si cred-inner">
+      <div>
+        <span class="tag r">Where We Are</span>
+        <h2 class="display r" style="max-width:480px;">Early. Intentional.<br><span class="acc">Focused.</span></h2>
+        <div class="rule r"></div>
+        <p class="prose r d1">We are early. We know it. But the problems we are solving are not early — they are urgent, global, and compounding. We are building with the patience of a decade and the urgency of today.</p>
+        <div class="sigs r d2" style="margin-top:2rem;">
+          <div class="sig">
+            <div class="sig-dot"></div>
+            <div class="sig-text">
+              <h5>Early-stage, focused on building core intelligence systems</h5>
+              <p>We are building from first principles — no rushed features, no shortcuts.</p>
+            </div>
+          </div>
+          <div class="sig">
+            <div class="sig-dot"></div>
+            <div class="sig-text">
+              <h5>Actively exploring pilot opportunities and partnerships</h5>
+              <p>Open for conversations with fleet operators, insurers, and strategic partners.</p>
+            </div>
+          </div>
+          <div class="sig">
+            <div class="sig-dot"></div>
+            <div class="sig-text">
+              <h5>Designed with long-term integration and scale in mind</h5>
+              <p>Every architectural decision is made for scale — not for an MVP demo.</p>
+            </div>
+          </div>
+          <div class="sig">
+            <div class="sig-dot"></div>
+            <div class="sig-text">
+              <h5>Built with a clear focus on real-world deployment</h5>
+              <p>Not just experimentation. VEXAR is designed for roads, fleets, and lives.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="r d2">
+        <div style="display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem;">
+          <div class="badge-live"><div class="dot"></div><span>Core systems — actively in development</span></div>
+          <div class="badge-live"><div class="dot"></div><span>Open for fleet pilot partnerships</span></div>
+          <div class="badge-live"><div class="dot"></div><span>Exploring early investment conversations</span></div>
+          <div class="badge-live"><div class="dot"></div><span>Insurance co-development welcome</span></div>
+        </div>
+        <div class="founders-note">
+          <blockquote>"We are at the beginning of making roads intelligent. VEXAR exists to ensure that intelligence is, above all else, safe."</blockquote>
+          <cite>— VEXAR Founding Team</cite>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <a href="contact.html" class="btn-p">Work With Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="ft">
+    <div class="ft-logo">
+      <img src="assets/logo-white.png" alt="VEXAR">
+      <p class="ft-tagline">VEXAR — Building intelligence into motion.</p>
+      <div class="ft-socials">
+        <a href="#" class="soc" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" class="soc" aria-label="X"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+      </div>
+    </div>
+    <nav class="ft-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="technology.html">Technology</a><a href="vision.html">Vision</a><a href="contact.html">Contact</a></nav>
+    <div class="ft-contact">
+      <a href="mailto:contact@vexartech.in">contact@vexartech.in</a>
+      <a href="tel:+919360498704">+91 93604 98704</a>
+      <a href="tel:+917550195718">+91 75501 95718</a>
+      <a href="https://vexartech.in" target="_blank">vexartech.in</a>
+    </div>
+  </div>
+  <div class="ft-copy">
+    <span>© 2026 VexarDrive Technologies Private Limited. All rights reserved.</span>
+    <span>AI Driver Safety · Intelligent Mobility</span>
+  </div>
+</footer>
+<script src="vexar.js"></script>
+</body>
+</html>
