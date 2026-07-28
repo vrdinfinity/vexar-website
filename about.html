@@ -9,8 +9,7 @@
 <style>
 .about-hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start; }
 .problem-block { background:var(--bg2); border-left:2px solid var(--blue); padding:2.5rem; margin-top:3rem; }
-.problem-block p { font-family:var(--ff-d); font-size:1rem; line-height:2.2; color:var(--text); }
-.problem-block p.hl { color:var(--white); font-weight:600; }
+.problem-block p { font-size:1rem; line-height:2; color:var(--text); }
 .problem-block p.dim { color:var(--muted); }
 .problem-block p.closer { color:var(--blue); font-weight:600; }
 .matters-list { margin-top:2rem; display:flex; flex-direction:column; gap:2rem; }
@@ -18,7 +17,7 @@
 .matters-icon { width:42px; height:42px; border:1px solid var(--border); background:var(--blue-b); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all .3s; }
 .matters-item:hover .matters-icon { border-color:var(--blue); background:var(--blue-d); }
 .matters-icon svg { width:16px; height:16px; stroke:var(--blue); fill:none; stroke-width:1.5; }
-.matters-text h4 { font-family:var(--ff-d); font-size:.96rem; font-weight:600; color:var(--white); margin-bottom:.3rem; }
+.matters-text h4 { font-family:var(--ff-d); font-size:.96rem; font-weight:700; color:var(--white); margin-bottom:.3rem; }
 .matters-text p { font-size:.85rem; color:var(--muted); line-height:1.75; }
 .cred-section { background:var(--bg2); }
 .cred-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
@@ -26,17 +25,21 @@
 .sig { background:var(--bg2); display:flex; align-items:flex-start; gap:1.2rem; padding:1.5rem 1.4rem; border-left:2px solid transparent; transition:border-left-color .3s,background .3s; }
 .sig:hover { border-left-color:var(--blue); background:var(--surface); }
 .sig-dot { width:6px; height:6px; background:var(--blue); border-radius:50%; flex-shrink:0; margin-top:.55rem; }
-.sig-text h5 { font-family:var(--ff-d); font-size:.92rem; font-weight:600; color:var(--white); margin-bottom:.25rem; }
+.sig-text h5 { font-family:var(--ff-d); font-size:.92rem; font-weight:700; color:var(--white); margin-bottom:.25rem; }
 .sig-text p { font-size:.82rem; color:var(--muted); line-height:1.65; }
 .founders-note { margin-top:2.5rem; padding:2rem; border:1px solid var(--border); background:var(--blue-b); }
-.founders-note blockquote { font-size:.88rem; color:rgba(239,244,255,.6); line-height:1.85; font-style:italic; margin-bottom:.8rem; }
+.founders-note blockquote { font-size:.88rem; color:var(--text); line-height:1.85; font-style:italic; margin-bottom:.8rem; }
 .founders-note cite { font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--blue); font-style:normal; }
+.leaders-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:3rem; }
+.leader-card { background:var(--surface); padding:2.2rem 2rem; text-align:center; transition:background .3s; }
+.leader-card:hover { background:var(--bg2); }
+.leader-card h4 { font-family:var(--ff-d); font-size:1rem; font-weight:700; color:var(--white); margin-bottom:.3rem; }
+.leader-card p { font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); }
 @media(max-width:1024px){ .about-hero-grid,.cred-inner{grid-template-columns:1fr;gap:3rem} }
+@media(max-width:768px){ .leaders-grid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
-<div class="cur" id="C"></div><div class="cur-r" id="CR"></div>
-
 <nav id="nav">
   <a href="index.html" class="nav-logo"><img src="assets/logo-white.png" alt="VEXAR"></a>
   <ul class="nav-links">
@@ -69,16 +72,12 @@
   <section>
     <div class="si about-hero-grid">
       <div>
-        <p class="prose r" style="font-size:1.1rem;font-weight:300;color:rgba(239,244,255,.75);line-height:1.8;">
-          VEXAR is an early-stage technology company focused on one problem:
+        <p class="prose r" style="font-size:1.1rem;">
+          VEXAR is an early-stage technology company focused on one problem: road safety still reacts too late.
         </p>
-        <p class="r d1" style="font-family:var(--ff-d);font-size:1.4rem;font-weight:700;color:var(--white);letter-spacing:-.02em;margin:.6rem 0 1.4rem;line-height:1.2;">
-          Road safety still reacts too late.
-        </p>
-        <p class="prose r d2">We're building systems that observe, understand, and respond to driving as it happens — not after something goes wrong.</p>
-        <p class="prose r d3">Our direction combines real-time intelligence, behavioral analysis, and automated response into a single layer of safety that can integrate across fleets, insurance, and everyday mobility.</p>
-        <div class="r d4" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:2rem;">
-          <span class="pill">Early Stage</span>
+        <p class="prose r d1">We're building systems that observe, understand, and respond to driving as it happens — not after something goes wrong.</p>
+        <p class="prose r d2">Our approach combines real-time intelligence, behavioral analysis, and automated response into a single layer of safety that can integrate across fleets, insurance, and everyday mobility.</p>
+        <div class="r d3" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:2rem;">
           <span class="pill">Open for Pilots</span>
           <span class="pill">Koramangala, Bengaluru</span>
           <span class="pill">VexarDrive Technologies Pvt. Ltd.</span>
@@ -112,19 +111,9 @@
       <h2 class="display r" style="max-width:640px;">The problem isn't visibility.<br>It's <span class="acc">timing.</span></h2>
       <div class="rule r"></div>
       <div class="problem-block r d1">
-        <p>Modern vehicles generate data.</p>
-        <p>Dashcams record.</p>
-        <p>Telematics track.</p>
-        <p class="dim">&nbsp;</p>
-        <p>But none of it intervenes when it matters most.</p>
-        <p class="dim">&nbsp;</p>
-        <p class="hl">Accidents are still detected too late.</p>
-        <p class="hl">Decisions are still reactive.</p>
-        <p class="hl">Response is still delayed.</p>
-        <p class="dim">&nbsp;</p>
-        <p class="dim">Safety today is passive.</p>
-        <p class="dim">&nbsp;</p>
-        <p class="closer">That's the gap VEXAR exists to close.</p>
+        <p>Modern vehicles already generate plenty of data. Dashcams record. Telematics track. But none of it intervenes when it matters most — accidents are still detected too late, decisions are still reactive, and response is still delayed.</p>
+        <p class="dim" style="margin-top:1rem;">Safety today is passive.</p>
+        <p class="closer" style="margin-top:1rem;">That's the gap VEXAR exists to close.</p>
       </div>
     </div>
   </section>
@@ -170,36 +159,36 @@
     <div class="si cred-inner">
       <div>
         <span class="tag r">Where We Are</span>
-        <h2 class="display r" style="max-width:480px;">Early. Intentional.<br><span class="acc">Focused.</span></h2>
+        <h2 class="display r" style="max-width:480px;">Early, focused, and<br><span class="acc">building for scale</span></h2>
         <div class="rule r"></div>
-        <p class="prose r d1">We are early. We know it. But the problems we are solving are not early — they are urgent, global, and compounding. We are building with the patience of a decade and the urgency of today.</p>
+        <p class="prose r d1">We're an early-stage company, based in Bengaluru, building the core intelligence systems behind VEXAR. We're building deliberately — validating the technology through pilots before scaling — because the problems we're solving are urgent and long-term at once.</p>
         <div class="sigs r d2" style="margin-top:2rem;">
           <div class="sig">
             <div class="sig-dot"></div>
             <div class="sig-text">
               <h5>Early-stage, focused on building core intelligence systems</h5>
-              <p>We are building from first principles — no rushed features, no shortcuts.</p>
+              <p>We're building from first principles, prioritizing a solid foundation over rushed features.</p>
             </div>
           </div>
           <div class="sig">
             <div class="sig-dot"></div>
             <div class="sig-text">
               <h5>Actively exploring pilot opportunities and partnerships</h5>
-              <p>Open for conversations with fleet operators, insurers, and strategic partners.</p>
+              <p>Open to conversations with fleet operators, insurers, and strategic partners.</p>
             </div>
           </div>
           <div class="sig">
             <div class="sig-dot"></div>
             <div class="sig-text">
               <h5>Designed with long-term integration and scale in mind</h5>
-              <p>Every architectural decision is made for scale — not for an MVP demo.</p>
+              <p>Every architectural decision is made for scale — not just an early demo.</p>
             </div>
           </div>
           <div class="sig">
             <div class="sig-dot"></div>
             <div class="sig-text">
               <h5>Built with a clear focus on real-world deployment</h5>
-              <p>Not just experimentation. VEXAR is designed for roads, fleets, and lives.</p>
+              <p>VEXAR is designed for roads, fleets, and lives — not just experimentation.</p>
             </div>
           </div>
         </div>
@@ -208,8 +197,8 @@
         <div style="display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem;">
           <div class="badge-live"><div class="dot"></div><span>Core systems — actively in development</span></div>
           <div class="badge-live"><div class="dot"></div><span>Open for fleet pilot partnerships</span></div>
-          <div class="badge-live"><div class="dot"></div><span>Exploring early investment conversations</span></div>
           <div class="badge-live"><div class="dot"></div><span>Insurance co-development welcome</span></div>
+          <div class="badge-live"><div class="dot"></div><span>Direct, founder-level engagement for early partners</span></div>
         </div>
         <div class="founders-note">
           <blockquote>"We are at the beginning of making roads intelligent. VEXAR exists to ensure that intelligence is, above all else, safe."</blockquote>
@@ -222,6 +211,21 @@
     </div>
   </section>
 
+  <div class="sec-divider"></div>
+
+  <section>
+    <div class="si">
+      <span class="tag r" style="display:block;">Leadership</span>
+      <h2 class="display r" style="max-width:520px;">Who's building <span class="acc">VEXAR</span></h2>
+      <div class="rule r"></div>
+      <div class="leaders-grid">
+        <div class="leader-card r"><h4>Vaibhav Raj Dikshit</h4><p>Director</p></div>
+        <div class="leader-card r d1"><h4>Shriram Venugopalakrishnan</h4><p>Director</p></div>
+        <div class="leader-card r d2"><h4>Dharshini Nagarajan</h4><p>Director</p></div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
@@ -230,8 +234,8 @@
       <img src="assets/logo-white.png" alt="VEXAR">
       <p class="ft-tagline">VEXAR — Building intelligence into motion.</p>
       <div class="ft-socials">
-        <a href="#" class="soc" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-        <a href="#" class="soc" aria-label="X"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+        <a href="https://x.com/VexarDrive" class="soc" aria-label="X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+        <a href="https://www.instagram.com/vexardrive/" class="soc" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
       </div>
     </div>
     <nav class="ft-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="technology.html">Technology</a><a href="vision.html">Vision</a><a href="contact.html">Contact</a></nav>
