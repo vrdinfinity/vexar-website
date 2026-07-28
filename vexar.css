@@ -3,26 +3,26 @@
    VexarDrive Technologies Pvt. Ltd.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:       #030507;
-  --bg2:      #060A10;
-  --bg3:      #0A101A;
-  --surface:  #0D1520;
-  --card:     #101828;
+  --bg:       #FAFBFC;
+  --bg2:      #EEF1F5;
+  --bg3:      #E7EBF1;
+  --surface:  #FFFFFF;
+  --card:     #FFFFFF;
   --blue:     #1A6FFF;
-  --blue-d:   rgba(26,111,255,0.14);
-  --blue-b:   rgba(26,111,255,0.08);
-  --blue-line:rgba(26,111,255,0.1);
+  --blue-d:   rgba(26,111,255,0.12);
+  --blue-b:   rgba(26,111,255,0.06);
+  --blue-line:rgba(26,111,255,0.12);
   --cyan:     #00B4FF;
-  --white:    #EFF4FF;
-  --text:     #9AAFC8;
-  --muted:    #445566;
-  --border:   rgba(26,111,255,0.09);
-  --ff-d: 'Syne', sans-serif;
+  --white:    #0B1220;
+  --text:     #12181F;
+  --muted:    #5B6572;
+  --border:   #E2E6EC;
+  --ff-d: 'Inter', sans-serif;
   --ff-b: 'Inter', sans-serif;
   --nav-h: 76px;
 }
@@ -36,25 +36,10 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
-::selection { background: rgba(26,111,255,0.28); color: #fff; }
+::selection { background: rgba(26,111,255,0.18); color: var(--white); }
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
-
-/* ── CURSOR ── */
-.cur, .cur-r {
-  position: fixed; pointer-events: none; z-index: 9999;
-  border-radius: 50%; transform: translate(-50%,-50%);
-  transition: opacity .2s;
-}
-.cur   { width: 5px; height: 5px; background: var(--blue); }
-.cur-r {
-  width: 30px; height: 30px;
-  border: 1px solid rgba(26,111,255,.4);
-  transition: transform .18s ease, width .25s, height .25s, border-color .25s;
-}
-body.hov .cur-r { width: 48px; height: 48px; border-color: var(--blue); }
-@media (hover: none) { .cur, .cur-r { display: none; } body { cursor: auto; } }
 
 /* ── NAV ── */
 #nav {
@@ -66,7 +51,7 @@ body.hov .cur-r { width: 48px; height: 48px; border-color: var(--blue); }
   transition: background .4s, border-color .4s, backdrop-filter .4s;
 }
 #nav.stuck {
-  background: rgba(3,5,7,0.88);
+  background: rgba(250,251,252,0.92);
   backdrop-filter: blur(24px);
   border-bottom-color: var(--border);
 }
@@ -76,8 +61,6 @@ body.hov .cur-r { width: 48px; height: 48px; border-color: var(--blue); }
 }
 .nav-logo img {
   height: 44px; width: auto;
-  mix-blend-mode: screen;
-  filter: brightness(1.3);
   display: block;
 }
 
@@ -120,7 +103,7 @@ body.hov .cur-r { width: 48px; height: 48px; border-color: var(--blue); }
 .hbg.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 .mob {
   display: none; position: fixed; inset: 0;
-  background: rgba(3,5,7,.96); backdrop-filter: blur(24px);
+  background: rgba(250,251,252,.97); backdrop-filter: blur(24px);
   z-index: 490; flex-direction: column;
   align-items: center; justify-content: center; gap: 2.5rem;
 }
@@ -149,19 +132,19 @@ section { padding: clamp(5rem,10vh,8rem) 6%; }
 h1.display {
   font-family: var(--ff-d);
   font-size: clamp(3rem,7vw,6rem);
-  font-weight: 700; line-height: 1.0; letter-spacing: -.03em;
+  font-weight: 800; line-height: 1.05; letter-spacing: -.03em;
   color: var(--white);
 }
 h2.display {
   font-family: var(--ff-d);
   font-size: clamp(2rem,4.5vw,3.6rem);
-  font-weight: 700; line-height: 1.06; letter-spacing: -.025em;
+  font-weight: 800; line-height: 1.1; letter-spacing: -.025em;
   color: var(--white);
 }
 h3.display {
   font-family: var(--ff-d);
   font-size: clamp(1.5rem,3vw,2.2rem);
-  font-weight: 600; line-height: 1.1; letter-spacing: -.02em;
+  font-weight: 700; line-height: 1.15; letter-spacing: -.02em;
   color: var(--white);
 }
 .acc { color: var(--blue); }
@@ -171,8 +154,8 @@ h3.display {
 }
 
 .lead {
-  font-size: clamp(1rem,2vw,1.15rem); font-weight: 300;
-  color: rgba(239,244,255,.65); line-height: 1.85; max-width: 580px;
+  font-size: clamp(1rem,2vw,1.15rem); font-weight: 400;
+  color: var(--muted); line-height: 1.85; max-width: 580px;
 }
 .prose {
   font-size: .975rem; font-weight: 300;
@@ -201,9 +184,9 @@ h3.display {
 .btn-p:hover { transform: translateY(-2px); box-shadow: 0 16px 48px rgba(26,111,255,.32); }
 .btn-s {
   background: transparent; color: var(--white);
-  border: 1px solid rgba(239,244,255,.18);
+  border: 1px solid var(--border);
 }
-.btn-s:hover { border-color: rgba(239,244,255,.5); transform: translateY(-2px); }
+.btn-s:hover { border-color: rgba(11,18,32,.35); transform: translateY(-2px); }
 
 /* ── DIVIDERS ── */
 .sec-divider { height: 1px; background: var(--border); margin: 0 6%; }
@@ -233,8 +216,7 @@ footer {
   border-bottom: 1px solid var(--border);
 }
 .ft-logo img {
-  height: 30px; mix-blend-mode: screen;
-  filter: brightness(1.2); margin-bottom: .7rem;
+  height: 30px; margin-bottom: .7rem;
 }
 .ft-tagline {
   font-size: .72rem; color: var(--muted); letter-spacing: .04em; line-height: 1.6;
@@ -263,9 +245,9 @@ footer {
   max-width: 1160px; margin: 1.8rem auto 0;
   display: flex; justify-content: space-between; align-items: center;
   flex-wrap: wrap; gap: .6rem;
-  font-size: .62rem; color: rgba(68,85,102,.5); letter-spacing: .07em;
+  font-size: .62rem; color: rgba(11,18,32,.45); letter-spacing: .07em;
 }
-.ft-copy a { color: rgba(68,85,102,.5); text-decoration: none; }
+.ft-copy a { color: rgba(11,18,32,.45); text-decoration: none; }
 .ft-copy a:hover { color: var(--blue); }
 
 /* ── PILL / BADGE ── */
@@ -330,18 +312,18 @@ footer {
   font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted);
 }
 .fg input, .fg textarea, .fg select {
-  background: var(--surface); border: 1px solid rgba(68,85,102,.25);
+  background: var(--surface); border: 1px solid var(--border);
   color: var(--white); padding: .9rem 1.1rem;
-  font-family: var(--ff-b); font-size: .88rem; font-weight: 300;
-  outline: none; transition: border-color .2s; -webkit-appearance: none;
+  font-family: var(--ff-b); font-size: .88rem; font-weight: 400;
+  outline: none; transition: border-color .2s, box-shadow .2s; -webkit-appearance: none;
 }
 .fg select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23445566' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235B6572' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: right 1rem center;
   background-size: 10px; cursor: pointer;
 }
 .fg select option { background: var(--card); }
-.fg input:focus, .fg textarea:focus, .fg select:focus { border-color: rgba(26,111,255,.45); }
+.fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-b); }
 .fg input::placeholder, .fg textarea::placeholder { color: rgba(68,85,102,.5); }
 .fg textarea { resize: none; min-height: 130px; }
 .form-note { font-size: .68rem; color: var(--muted); margin-top: .3rem; }
