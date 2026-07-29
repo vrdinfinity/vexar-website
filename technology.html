@@ -4,30 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Technology — VEXAR</title>
-<meta name="description" content="VEXAR is building real-time driving intelligence, crash detection, behavioral risk analysis, and an integrated safety layer for modern mobility.">
+<meta name="description" content="How VEXAR tracks vehicles for fleet operators and rides for individual users, built on one shared real-time location engine.">
 <link rel="stylesheet" href="vexar.css">
 <style>
-.pillars-full { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-top:3.5rem; }
-.pillar-full { background:var(--bg2); padding:3rem 2.8rem; position:relative; overflow:hidden; transition:background .3s; }
-.pillar-full:hover { background:var(--surface); }
-.pillar-full::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--blue); transform:scaleX(0); transform-origin:left; transition:transform .4s ease; }
-.pillar-full:hover::before { transform:scaleX(1); }
-.pillar-n { font-size:.58rem; letter-spacing:.25em; color:rgba(26,111,255,.4); display:block; margin-bottom:1.8rem; font-family:var(--ff-d); }
-.pillar-icon { width:46px; height:46px; border:1px solid var(--border); background:var(--blue-b); display:flex; align-items:center; justify-content:center; margin-bottom:1.6rem; transition:all .3s; }
-.pillar-full:hover .pillar-icon { border-color:rgba(26,111,255,.4); background:var(--blue-d); }
-.pillar-icon svg { width:20px; height:20px; stroke:var(--blue); fill:none; stroke-width:1.5; }
-.pillar-full h3 { font-family:var(--ff-d); font-size:1.3rem; font-weight:600; color:var(--white); margin-bottom:.7rem; letter-spacing:-.01em; }
-.pillar-full p { font-size:.88rem; color:var(--muted); line-height:1.8; }
-.who-section { background:var(--bg2); }
-.who-trio { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:3rem; }
-.who-c { background:var(--bg2); padding:2.8rem 2.2rem; text-align:center; transition:background .3s; }
-.who-c:hover { background:rgba(26,111,255,.03); }
-.who-ico { width:54px; height:54px; border:1px solid var(--border); background:var(--blue-b); display:flex; align-items:center; justify-content:center; margin:0 auto 1.6rem; transition:all .3s; }
-.who-c:hover .who-ico { border-color:var(--blue); background:var(--blue-d); }
-.who-ico svg { width:20px; height:20px; stroke:var(--blue); fill:none; stroke-width:1.5; }
-.who-c h3 { font-family:var(--ff-d); font-size:1.15rem; font-weight:600; color:var(--white); margin-bottom:.5rem; }
-.who-c p { font-size:.86rem; color:var(--muted); line-height:1.75; }
-@media(max-width:768px){ .pillars-full,.who-trio{ grid-template-columns:1fr; } }
+.product-block:not(:first-child) { margin-top: 4.5rem; }
+.product-head { max-width: 640px; margin-bottom: 2.8rem; }
+.product-head .tag { margin-bottom: .8rem; }
+.feature-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
+.feature-grid.cols-2 { grid-template-columns:repeat(2,1fr); }
+.foundation-section { background:var(--bg2); }
+.foundation-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.foundation-list { display:flex; flex-direction:column; gap:1.4rem; margin-top:1.5rem; }
+.foundation-item { display:flex; gap:1rem; align-items:flex-start; }
+.foundation-dot { width:6px; height:6px; border-radius:50%; background:var(--blue); flex-shrink:0; margin-top:.5rem; }
+.foundation-item p { font-size:.9rem; color:var(--text); line-height:1.7; }
+.foundation-item p b { color:var(--white); font-weight:600; }
+@media(max-width:768px){ .feature-grid,.feature-grid.cols-2{ grid-template-columns:1fr; } .foundation-inner{ grid-template-columns:1fr; gap:2.5rem; } }
 </style>
 </head>
 <body>
@@ -54,39 +46,53 @@
   <div class="page-hero" style="background:linear-gradient(to bottom,rgba(26,111,255,.04) 0%,transparent 100%);">
     <div class="si">
       <span class="tag r" style="display:block;">What We're Building</span>
-      <h1 class="display r" style="max-width:700px;">Four pillars of<br><span class="acc">intelligent safety</span></h1>
+      <h1 class="display r" style="max-width:700px;">One engine.<br>Two ways to stay <span class="acc">in the know.</span></h1>
       <div class="rule r"></div>
-      <p class="lead r d1" style="margin-top:.5rem;">Not features. Not dashboards. Foundational systems designed to operate invisibly — and protect lives visibly.</p>
+      <p class="lead r d1" style="margin-top:.5rem;">The same real-time location and trip engine runs underneath both a fleet dashboard for operators and a personal tracker for individual riders.</p>
     </div>
   </div>
 
-  <!-- PILLARS -->
+  <!-- FOR FLEETS -->
   <section>
     <div class="si">
-      <div class="pillars-full">
-        <div class="pillar-full r">
-          <span class="pillar-n">01</span>
-          <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 6v6l4 2"/></svg></div>
-          <h3>Real-Time Driving Intelligence</h3>
-          <p>Systems that continuously interpret driving behavior, not just record it. VEXAR processes live sensor data to understand context, risk level, and behavioral anomalies as they occur — before they become incidents.</p>
+      <div class="product-block">
+        <div class="product-head">
+          <span class="tag r">For Fleets</span>
+          <h2 class="display r" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">A live view of the<br>whole operation</h2>
+          <div class="rule r"></div>
+          <p class="prose r d1">Built for the person who has to answer "where's vehicle 12 right now?" — a dashboard that keeps operations leads and fleet owners current on every vehicle, driver, and trip without needing to call around for updates.</p>
         </div>
-        <div class="pillar-full r d1">
-          <span class="pillar-n">02</span>
-          <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-          <h3>Crash Detection &amp; Response</h3>
-          <p>Immediate recognition of impact events with automated emergency signaling. The system distinguishes minor incidents from critical events and initiates coordinated response protocols — in seconds, not minutes.</p>
-        </div>
-        <div class="pillar-full r d2">
-          <span class="pillar-n">03</span>
-          <div class="pillar-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-          <h3>Behavioral Risk Analysis</h3>
-          <p>Understanding patterns that lead to accidents — before they happen. VEXAR identifies fatigue, distraction, aggression, and risk-prone habits through continuous behavioral modeling across time and context.</p>
-        </div>
-        <div class="pillar-full r d3">
-          <span class="pillar-n">04</span>
-          <div class="pillar-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-          <h3>Integrated Safety Layer</h3>
-          <p>A unified system designed to plug into fleets, insurers, and mobility platforms. VEXAR is built to integrate — not replace — providing safety intelligence as infrastructure that operators can build upon.</p>
+        <div class="feature-grid">
+          <div class="card r d1">
+            <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+            <h3>Live Fleet Map</h3>
+            <p>Every vehicle plotted in real time, color-coded by status, so a scan of the map tells you what's active, idle, or offline.</p>
+          </div>
+          <div class="card r d2">
+            <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+            <h3>Vehicle &amp; Driver Registry</h3>
+            <p>A single record for every vehicle and driver — assignment history, trip counts, and current status, always up to date.</p>
+          </div>
+          <div class="card r d3">
+            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 6v6l4 2"/></svg></div>
+            <h3>Trip History</h3>
+            <p>Every completed trip logged with route, duration, and distance — searchable by vehicle, driver, or date.</p>
+          </div>
+          <div class="card r d4">
+            <div class="card-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <h3>Fleet-Wide Reporting</h3>
+            <p>Utilization, activity, and trend reports exportable as PDF, CSV, or Excel — or delivered straight to an inbox.</p>
+          </div>
+          <div class="card r d5">
+            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <h3>Operational Alerts</h3>
+            <p>Notice when a vehicle goes offline, drifts off its expected route, or sits idle longer than it should.</p>
+          </div>
+          <div class="card r d1">
+            <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+            <h3>A Lightweight Driver View</h3>
+            <p>Drivers get their own simple screen — their trips, their stats — without the operator-side complexity.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -94,28 +100,61 @@
 
   <div class="sec-divider"></div>
 
-  <!-- WHO IT'S FOR -->
-  <section class="who-section">
+  <!-- FOR RIDERS -->
+  <section style="background:var(--bg2);">
     <div class="si">
-      <span class="tag r">Who It's For</span>
-      <h2 class="display r">Designed for systems<br>that <span class="acc">move people</span></h2>
-      <div class="rule r"></div>
-      <p class="prose r d1" style="max-width:560px;">VEXAR's systems are designed to integrate into existing operations — not ask organisations to rebuild around them.</p>
-      <div class="who-trio">
-        <div class="who-c r d1">
-          <div class="who-ico"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-          <h3>Fleets</h3>
-          <p>Reduce risk, monitor behavior, and move from reactive safety to real-time control. Every driver. Every journey.</p>
+      <div class="product-block">
+        <div class="product-head">
+          <span class="tag r">For Riders</span>
+          <h2 class="display r" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Every ride,<br>automatically <span class="acc">on record</span></h2>
+          <div class="rule r"></div>
+          <p class="prose r d1">For the individual rider who wants a running history of their own trips — no manual logging, no separate device. Start riding, and VEXAR keeps the record.</p>
         </div>
-        <div class="who-c r d2">
-          <div class="who-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3>Insurance</h3>
-          <p>Move beyond static risk models toward dynamic, behavior-based understanding. Smarter pricing. Faster claims.</p>
+        <div class="feature-grid cols-2">
+          <div class="card r d1">
+            <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+            <h3>Automatic Trip Tracking</h3>
+            <p>Route, distance, average and top speed captured for every ride, start to finish, without needing to press record.</p>
+          </div>
+          <div class="card r d2">
+            <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 6v6l4 2"/></svg></div>
+            <h3>Personal Ride History</h3>
+            <p>A running log of past rides you can look back on — how far you've gone, and how your pace has changed over time.</p>
+          </div>
         </div>
-        <div class="who-c r d3">
-          <div class="who-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-          <h3>Mobility Ecosystems</h3>
-          <p>Embed intelligence directly into the infrastructure of modern transportation. Safety as a platform layer.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec-divider"></div>
+
+  <!-- SHARED FOUNDATION -->
+  <section class="foundation-section">
+    <div class="si">
+      <div class="foundation-inner">
+        <div>
+          <span class="tag r">Under the Hood</span>
+          <h2 class="display r" style="max-width:480px;">One tracking core,<br><span class="acc">built once</span></h2>
+          <div class="rule r"></div>
+          <p class="prose r d1">Both products run on the same underlying location and trip infrastructure — built once, then shaped into two different experiences.</p>
+        </div>
+        <div class="foundation-list r d2">
+          <div class="foundation-item">
+            <div class="foundation-dot"></div>
+            <p><b>Continuous location tracking</b> — position updates flow in as they happen, not on a delay.</p>
+          </div>
+          <div class="foundation-item">
+            <div class="foundation-dot"></div>
+            <p><b>Trip lifecycle management</b> — every trip has a clear start, end, and full route in between.</p>
+          </div>
+          <div class="foundation-item">
+            <div class="foundation-dot"></div>
+            <p><b>Role-based access</b> — fleet operators, drivers, and riders each see exactly what's relevant to them.</p>
+          </div>
+          <div class="foundation-item">
+            <div class="foundation-dot"></div>
+            <p><b>Built to extend</b> — the same foundation that runs fleet tracking today is designed to carry future capabilities as they're ready.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -128,7 +167,7 @@
     <div class="si" style="max-width:680px;">
       <span class="tag r" style="display:block;">Interested in a Pilot?</span>
       <h2 class="display r">Let's build this<br><span class="acc">together</span></h2>
-      <p class="prose r d1" style="margin:.8rem auto 2.5rem;max-width:480px;color:var(--muted);">If you're working in fleets, insurance, or mobility infrastructure — we're open to conversations, pilots, and collaboration.</p>
+      <p class="prose r d1" style="margin:.8rem auto 2.5rem;max-width:480px;color:var(--muted);">Whether you're running a fleet or just want to try tracking your own rides — we'd like to hear from you.</p>
       <a href="contact.html" class="btn-p r d2">Get in Touch</a>
     </div>
   </section>
@@ -137,9 +176,9 @@
 
 <footer>
   <div class="ft">
-    <div class="ft-logo"><img src="assets/logo-white.png" alt="VEXAR"><p class="ft-tagline">VEXAR — Building intelligence into motion.</p></div>
+    <div class="ft-logo"><img src="assets/logo-white.png" alt="VEXAR"><p class="ft-tagline">VEXAR — Beyond the Horizon</p></div>
     <nav class="ft-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="technology.html">Technology</a><a href="vision.html">Vision</a><a href="contact.html">Contact</a></nav>
-    <div class="ft-contact"><a href="mailto:contact@vexartech.in">contact@vexartech.in</a><a href="tel:+919360498704">+91 93604 98704</a><a href="https://vexartech.in" target="_blank">vexartech.in</a></div>
+    <div class="ft-contact"><a href="mailto:contact@vexartech.in">contact@vexartech.in</a><a href="tel:+916374743899">+91 63747 43899</a><a href="https://vexartech.in" target="_blank">vexartech.in</a></div>
   </div>
   <div class="ft-copy"><span>© 2026 VexarDrive Technologies Private Limited. All rights reserved.</span></div>
 </footer>

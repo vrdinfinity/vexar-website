@@ -60,7 +60,7 @@ body {
   text-decoration: none; flex-shrink: 0;
 }
 .nav-logo img {
-  height: 44px; width: auto;
+  height: 64px; width: auto;
   display: block;
 }
 
@@ -216,7 +216,7 @@ footer {
   border-bottom: 1px solid var(--border);
 }
 .ft-logo img {
-  height: 30px; margin-bottom: .7rem;
+  height: 44px; margin-bottom: .7rem;
 }
 .ft-tagline {
   font-size: .72rem; color: var(--muted); letter-spacing: .04em; line-height: 1.6;
