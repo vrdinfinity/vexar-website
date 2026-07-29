@@ -7,47 +7,17 @@
 <meta name="description" content="VEXAR's vision: building the future of intelligent transportation — scalable safety systems, integrated into everyday mobility.">
 <link rel="stylesheet" href="vexar.css">
 <style>
-.vision-cinematic {
-  padding: clamp(5rem,12vh,9rem) 6%;
-  text-align: center; position: relative; overflow: hidden;
-}
-.vision-cinematic::before, .vision-cinematic::after {
-  content: ''; position: absolute; left: 6%; right: 6%; height: 1px; background: var(--border);
-}
-.vision-cinematic::before { top: 0; }
-.vision-cinematic::after  { bottom: 0; }
-.vc-glow {
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 65% 70% at 50% 50%, rgba(26,111,255,.05) 0%, transparent 68%);
-  pointer-events: none;
-}
-.vc-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
-.vision-verse p {
-  font-family: var(--ff-d); font-size: clamp(1.05rem,2.2vw,1.3rem);
-  color: rgba(239,244,255,.4); line-height: 2.3; font-weight: 300;
-}
-.vision-verse p.hl  { color: rgba(239,244,255,.75); }
-.vision-verse p.wh  { color: var(--white); font-weight: 500; }
-.vision-verse p.bl  { color: var(--blue); font-weight: 500; }
-.vision-verse p.end { color: var(--white); font-weight: 700; font-size: clamp(1.1rem,2.5vw,1.4rem); margin-top: .5rem; }
-.market-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:3.5rem; }
-.mkt-cell { background:var(--bg2); padding:2.5rem 2.2rem; text-align:center; transition:background .3s; }
-.mkt-cell:hover { background:var(--surface); }
-.mkt-n { font-family:var(--ff-d); font-size:clamp(2rem,4vw,3rem); font-weight:700; color:var(--white); line-height:1; margin-bottom:.4rem; }
-.mkt-n span { color:var(--blue); }
-.mkt-l { font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); line-height:1.5; }
+.market-copy { max-width:640px; }
 .arc-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); }
-.arc-cell { background:var(--bg2); padding:2.8rem 2.5rem; transition:background .3s,border-left-color .3s; border-left:2px solid transparent; }
-.arc-cell:hover { background:var(--surface); border-left-color:var(--blue); }
-.arc-num { font-size:.58rem; letter-spacing:.25em; color:rgba(26,111,255,.4); font-family:var(--ff-d); display:block; margin-bottom:1.2rem; }
-.arc-cell h3 { font-family:var(--ff-d); font-size:1.1rem; font-weight:600; color:var(--white); margin-bottom:.55rem; letter-spacing:-.01em; }
+.arc-cell { background:var(--surface); padding:2.8rem 2.5rem; transition:background .3s,border-left-color .3s; border-left:2px solid transparent; }
+.arc-cell:hover { background:var(--bg2); border-left-color:var(--blue); }
+.arc-num { font-size:.58rem; letter-spacing:.25em; color:rgba(26,111,255,.5); font-family:var(--ff-d); display:block; margin-bottom:1.2rem; }
+.arc-cell h3 { font-family:var(--ff-d); font-size:1.1rem; font-weight:700; color:var(--white); margin-bottom:.55rem; letter-spacing:-.01em; }
 .arc-cell p { font-size:.86rem; color:var(--muted); line-height:1.75; }
-@media(max-width:768px){ .market-grid,.arc-grid{ grid-template-columns:1fr; } }
+@media(max-width:768px){ .arc-grid{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
-<div class="cur" id="C"></div><div class="cur-r" id="CR"></div>
-
 <nav id="nav">
   <a href="index.html" class="nav-logo"><img src="assets/logo-white.png" alt="VEXAR"></a>
   <ul class="nav-links">
@@ -76,80 +46,56 @@
     </div>
   </div>
 
-  <!-- VISION CINEMATIC -->
-  <section class="vision-cinematic">
-    <div class="vc-glow"></div>
-    <div class="vc-inner">
-      <div class="vision-verse r">
-        <p class="hl">We see a shift coming.</p>
-        <p>&nbsp;</p>
-        <p>From systems that report</p>
-        <p class="wh">to systems that understand.</p>
-        <p>&nbsp;</p>
-        <p>From delayed response</p>
-        <p class="wh">to immediate action.</p>
-        <p>&nbsp;</p>
-        <p>From fragmented tools</p>
-        <p class="wh">to a unified safety layer across mobility.</p>
-        <p>&nbsp;</p>
-        <p class="bl end">VEXAR is being built for that shift.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- MARKET OPPORTUNITY -->
-  <section style="background:var(--bg2);">
+  <section>
     <div class="si">
-      <span class="tag r">The Opportunity</span>
-      <h2 class="display r" style="max-width:600px;">A market as large as<br>the <span class="acc">problem</span></h2>
+      <span class="tag r">Where We're Headed</span>
+      <h2 class="display r" style="max-width:640px;">From reporting to <span class="acc">understanding</span></h2>
       <div class="rule r"></div>
-      <p class="prose r d1" style="max-width:560px;">Road safety isn't a niche — it is one of the most consequential and underpenetrated markets in the world. The convergence of AI, connected vehicles, and regulatory pressure is creating a structural shift.</p>
-      <div class="market-grid r d2" style="margin-top:2.5rem;">
-        <div class="mkt-cell">
-          <div class="mkt-n">$50<span>B+</span></div>
-          <div class="mkt-l">Global fleet safety market projected by 2030</div>
-        </div>
-        <div class="mkt-cell">
-          <div class="mkt-n">4.5<span>B+</span></div>
-          <div class="mkt-l">Connected vehicles on the road by 2030</div>
-        </div>
-        <div class="mkt-cell">
-          <div class="mkt-n">12<span>×</span></div>
-          <div class="mkt-l">Typical ROI for fleets adopting AI safety systems</div>
-        </div>
-      </div>
+      <p class="prose r d1" style="max-width:640px;">The mobility industry is shifting — from systems that report after the fact to systems that understand in the moment, from delayed response to immediate action, from fragmented tools to a single, unified safety layer across mobility. VEXAR is built for that shift, and we're building it alongside the fleets, insurers, and mobility partners who will use it every day.</p>
     </div>
   </section>
 
   <div class="sec-divider"></div>
 
-  <!-- HOW WE GET THERE -->
+  <!-- WHY NOW -->
+  <section style="background:var(--bg2);">
+    <div class="si">
+      <span class="tag r">Why Now</span>
+      <h2 class="display r" style="max-width:600px;">The conditions for<br><span class="acc">real-time safety</span> finally exist</h2>
+      <div class="rule r"></div>
+      <p class="prose market-copy r d1">AI, connected vehicles, and regulatory pressure are converging at once. Vehicles are more instrumented than ever, the compute needed to interpret their data in real time is finally affordable, and regulators and insurers alike are pushing for safety systems that do more than record. VEXAR exists to meet that moment.</p>
+    </div>
+  </section>
+
+  <div class="sec-divider"></div>
+
+  <!-- HOW WE WORK WITH PARTNERS -->
   <section>
     <div class="si">
-      <span class="tag r">How We Get There</span>
-      <h2 class="display r" style="max-width:600px;">Building the future of<br><span class="acc">intelligent transportation</span></h2>
+      <span class="tag r">How We Work With Partners</span>
+      <h2 class="display r" style="max-width:600px;">What to expect, from<br><span class="acc">pilot to scale</span></h2>
       <div class="rule r"></div>
-      <p class="prose r d1" style="max-width:560px;margin-bottom:3rem;">VEXAR is being built to scale — not as a product company, but as an intelligence infrastructure. Here's how that unfolds.</p>
+      <p class="prose r d1" style="max-width:560px;margin-bottom:3rem;">Working with VEXAR follows a deliberate path — proving value early, then integrating and scaling on your timeline.</p>
       <div class="arc-grid">
         <div class="arc-cell r d1">
-          <span class="arc-num">Phase 01</span>
-          <h3>Core Intelligence Systems</h3>
-          <p>Build and validate the foundational AI layer — real-time behavioral analysis, crash detection, and response automation. Proven through early pilot deployments.</p>
+          <span class="arc-num">Step 01</span>
+          <h3>Pilot</h3>
+          <p>We start with a focused pilot on a subset of your fleet, validating real-time detection and response in your actual operating conditions.</p>
         </div>
         <div class="arc-cell r d2">
-          <span class="arc-num">Phase 02</span>
-          <h3>Fleet & Insurance Integration</h3>
-          <p>Deploy at scale with fleet operators and insurance partners. Generate real-world data. Iterate on the intelligence model. Build a proprietary safety dataset.</p>
+          <span class="arc-num">Step 02</span>
+          <h3>Integration</h3>
+          <p>Once validated, VEXAR integrates into your existing fleet management, telematics, or insurance workflows — an addition, not a replacement.</p>
         </div>
         <div class="arc-cell r d3">
-          <span class="arc-num">Phase 03</span>
-          <h3>Platform Expansion</h3>
-          <p>Open VEXAR's intelligence to the broader mobility ecosystem — logistics, ride-hailing, smart city infrastructure, and OEM integration.</p>
+          <span class="arc-num">Step 03</span>
+          <h3>Scale</h3>
+          <p>We expand across your full fleet or portfolio, with the intelligence layer improving as it sees more real-world driving data.</p>
         </div>
         <div class="arc-cell r d4">
-          <span class="arc-num">Phase 04</span>
-          <h3>Global Safety Infrastructure</h3>
-          <p>Become the trusted safety intelligence layer embedded across transportation systems globally. The platform that makes roads intelligent, everywhere.</p>
+          <span class="arc-num">Step 04</span>
+          <h3>Ongoing Partnership</h3>
+          <p>We stay engaged after deployment, refining detection models and response protocols alongside your team.</p>
         </div>
       </div>
     </div>
@@ -160,10 +106,10 @@
   <!-- CTA -->
   <section style="text-align:center;padding:clamp(5rem,10vh,8rem) 6%;">
     <div class="si" style="max-width:680px;">
-      <span class="tag r" style="display:block;">Join the Journey</span>
-      <h2 class="display r">Invest in the future of<br><span class="acc">safer roads</span></h2>
-      <p class="prose r d1" style="margin:.8rem auto 2.5rem;max-width:500px;color:var(--muted);">We're in the early chapters. If you see what we see — reach out. Investors, partners, and pilot operators are all welcome at this stage.</p>
-      <a href="contact.html" class="btn-p r d2">Start a Conversation</a>
+      <span class="tag r" style="display:block;">Let's Talk</span>
+      <h2 class="display r">Start a conversation about<br><span class="acc">your fleet</span></h2>
+      <p class="prose r d1" style="margin:.8rem auto 2.5rem;max-width:500px;color:var(--muted);">We're in active conversations with fleet operators, insurers, and mobility partners exploring what real-time safety intelligence looks like for their operations. If that's you, let's talk.</p>
+      <a href="contact.html" class="btn-p r d2">Talk to Our Team</a>
     </div>
   </section>
 
