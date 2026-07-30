@@ -35,6 +35,8 @@
 .leader-card:hover { background:var(--bg2); }
 .leader-card h4 { font-family:var(--ff-d); font-size:1rem; font-weight:700; color:var(--white); margin-bottom:.3rem; }
 .leader-card p { font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); }
+.leader-card h4 a { color:inherit; text-decoration:none; transition:color .2s; }
+.leader-card h4 a:hover { color:var(--blue); text-decoration:underline; }
 @media(max-width:1024px){ .about-hero-grid,.cred-inner{grid-template-columns:1fr;gap:3rem} }
 @media(max-width:768px){ .leaders-grid{grid-template-columns:1fr} }
 </style>
@@ -75,7 +77,7 @@
         <p class="prose r" style="font-size:1.1rem;">
           VEXAR is an early-stage technology company built around a simple idea: whoever's responsible for a vehicle should always know what's happening with it.
         </p>
-        <p class="prose r d1">We're building two products on one shared foundation — a fleet dashboard that gives operators live visibility into their vehicles and drivers, and a personal tracking app that gives individual riders an automatic record of their trips.</p>
+        <p class="prose r d1">We're building two products on one shared foundation: a fleet dashboard that gives operators live visibility into their vehicles and drivers, and a personal tracking app that gives individual riders an automatic record of their trips.</p>
         <p class="prose r d2">Both run on the same real-time location and trip infrastructure, built once and shaped differently for each audience.</p>
         <div class="r d3" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:2rem;">
           <span class="pill">Open for Pilots</span>
@@ -86,16 +88,16 @@
       <div>
         <div class="stat-grid r d1" style="margin-bottom:2rem;">
           <div class="stat-cell">
-            <div class="stat-n">Live</div>
-            <div class="stat-l">Vehicle &amp; trip updates</div>
+            <div class="stat-n">Every</div>
+            <div class="stat-l">Vehicle and every trip, tracked</div>
           </div>
           <div class="stat-cell">
-            <div class="stat-n">2</div>
-            <div class="stat-l">Products, one engine</div>
+            <div class="stat-n">All</div>
+            <div class="stat-l">Covered, nothing left to chase</div>
           </div>
           <div class="stat-cell">
-            <div class="stat-n">B2B<span>+</span>B2C</div>
-            <div class="stat-l">Fleets and individual riders</div>
+            <div class="stat-n">Whole</div>
+            <div class="stat-l">Operation, one screen</div>
           </div>
         </div>
       </div>
@@ -111,7 +113,7 @@
       <h2 class="display r" style="max-width:640px;">Fleets run on<br><span class="acc">stale updates.</span></h2>
       <div class="rule r"></div>
       <div class="problem-block r d1">
-        <p>Ask most fleet managers where a specific vehicle is right now, and the honest answer is often "I'll have to check." Location updates come from a driver's call, a manual log, or a system that only refreshes every few minutes — by the time the picture is current, it's already out of date.</p>
+        <p>Ask most fleet managers where a specific vehicle is right now, and the honest answer is often "I'll have to check." Location updates come from a driver's call, a manual log, or a system that only refreshes every few minutes, so by the time the picture is current, it's already out of date.</p>
         <p class="dim" style="margin-top:1rem;">Individual riders have it worse: once a trip ends, there's usually no record of it at all.</p>
         <p class="closer" style="margin-top:1rem;">VEXAR exists to make that information current, automatic, and always available.</p>
       </div>
@@ -145,7 +147,7 @@
           <div class="matters-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
           <div class="matters-text">
             <h4>A record that just exists</h4>
-            <p>For riders, the value is simpler: trips get logged automatically, so the history is there whenever you want to look back on it — no extra effort required.</p>
+            <p>For riders, the value is simpler: trips get logged automatically, so the history is there whenever you want to look back on it, with no extra effort required.</p>
           </div>
         </div>
       </div>
@@ -161,7 +163,7 @@
         <span class="tag r">Where We Are</span>
         <h2 class="display r" style="max-width:480px;">Early, focused, and<br><span class="acc">building for scale</span></h2>
         <div class="rule r"></div>
-        <p class="prose r d1">We're an early-stage company, based in Bengaluru, building the tracking infrastructure behind VEXAR. We're building deliberately — validating with real fleets and riders before scaling — because getting the fundamentals right matters more than shipping fast.</p>
+        <p class="prose r d1">We're an early-stage company, based in Bengaluru, building the tracking infrastructure behind VEXAR. We're building deliberately, validating with real fleets and riders before scaling, because getting the fundamentals right matters more than shipping fast.</p>
         <div class="sigs r d2" style="margin-top:2rem;">
           <div class="sig">
             <div class="sig-dot"></div>
@@ -181,21 +183,21 @@
             <div class="sig-dot"></div>
             <div class="sig-text">
               <h5>Designed with long-term integration and scale in mind</h5>
-              <p>Every architectural decision is made for scale — not just an early demo.</p>
+              <p>Every architectural decision is made for scale, not just an early demo.</p>
             </div>
           </div>
           <div class="sig">
             <div class="sig-dot"></div>
             <div class="sig-text">
               <h5>Built with a clear focus on real-world deployment</h5>
-              <p>VEXAR is designed for actual fleets and actual riders — not just a demo environment.</p>
+              <p>VEXAR is designed for actual fleets and actual riders, not just a demo environment.</p>
             </div>
           </div>
         </div>
       </div>
       <div class="r d2">
         <div style="display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem;">
-          <div class="badge-live"><div class="dot"></div><span>Core tracking systems — actively in development</span></div>
+          <div class="badge-live"><div class="dot"></div><span>Core tracking systems, actively in development</span></div>
           <div class="badge-live"><div class="dot"></div><span>Open for fleet pilot partnerships</span></div>
           <div class="badge-live"><div class="dot"></div><span>Early access open for individual riders</span></div>
           <div class="badge-live"><div class="dot"></div><span>Direct, founder-level engagement for early partners</span></div>
@@ -219,9 +221,9 @@
       <h2 class="display r" style="max-width:520px;">Who's building <span class="acc">VEXAR</span></h2>
       <div class="rule r"></div>
       <div class="leaders-grid">
-        <div class="leader-card r"><h4>Vaibhav Raj Dikshit</h4><p>Director</p></div>
-        <div class="leader-card r d1"><h4>Shriram Venugopalakrishnan</h4><p>Director</p></div>
-        <div class="leader-card r d2"><h4>Dharshini Nagarajan</h4><p>Director</p></div>
+        <div class="leader-card r"><h4><a href="https://www.linkedin.com/in/vaibhav-raj-dikshit-00b1b9237/" target="_blank" rel="noopener">Vaibhav Raj Dikshit</a></h4><p>Founder &amp; Chief Executive Officer</p></div>
+        <div class="leader-card r d1"><h4><a href="https://www.linkedin.com/in/shriram-venugopal-a7597b259/" target="_blank" rel="noopener">Shriram Venugopalakrishnan</a></h4><p>Co-Founder &amp; Chief Operating Officer</p></div>
+        <div class="leader-card r d2"><h4><a href="https://www.linkedin.com/in/dharshini-nagarajan-02a107244/" target="_blank" rel="noopener">Dharshini Nagarajan</a></h4><p>Co-Founder &amp; Chief Marketing Officer</p></div>
       </div>
     </div>
   </section>
