@@ -7,16 +7,41 @@
 <meta name="description" content="VEXAR gives fleet operators live visibility into every vehicle and driver, and gives everyday riders a running record of their trips — all powered by the same real-time tracking engine.">
 <meta name="keywords" content="fleet tracking software, real-time vehicle visibility, driver monitoring dashboard, ride tracking app">
 <link rel="icon" type="image/png" href="assets/favicon.png?v=5">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
 <link rel="stylesheet" href="vexar.css">
 <style>
 /* ─── HERO ─── */
 #hero {
+  position: relative; overflow: hidden; isolation: isolate;
   padding: clamp(7rem,14vh,10rem) 6% clamp(4rem,8vh,6rem);
   border-bottom: 1px solid var(--border);
-  background: linear-gradient(to bottom, var(--blue-b) 0%, transparent 100%);
   text-align: center;
 }
-.hero-body { max-width: 760px; margin: 0 auto; }
+/* Background image layer. Swap the placeholder gradients/grid below for a
+   real photo by adding: background-image: url('assets/hero-bg.jpg'), <rest>; */
+.hero-bg {
+  position: absolute; inset: -12% -6%; z-index: -2;
+  background-image:
+    radial-gradient(circle at 20% 18%, rgba(26,111,255,.20), transparent 45%),
+    radial-gradient(circle at 82% 6%, rgba(0,180,255,.16), transparent 42%),
+    linear-gradient(135deg, rgba(26,111,255,.07) 0%, transparent 55%),
+    repeating-linear-gradient(0deg, rgba(11,18,32,.04) 0 1px, transparent 1px 64px),
+    repeating-linear-gradient(90deg, rgba(11,18,32,.04) 0 1px, transparent 1px 64px);
+  background-size: cover, cover, cover, 64px 64px, 64px 64px;
+  background-position: center;
+  will-change: transform;
+}
+.hero-3d {
+  position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%;
+  display: block; opacity: 0; transition: opacity 1.4s ease;
+}
+.hero-3d.on { opacity: 1; }
+.hero-scrim {
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(to bottom, rgba(250,251,252,.5) 0%, var(--bg) 90%);
+}
+.hero-body { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+@media (max-width: 899px) { .hero-3d { display: none; } }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
   font-size: .68rem; letter-spacing: .28em; text-transform: uppercase; color: var(--blue);
@@ -48,10 +73,10 @@ h1.hero-h {
 .stat-col { display: flex; flex-direction: column; gap: 0; margin-top: 2.5rem; }
 .stat-item {
   padding: 2rem 2.2rem; border-left: 1px solid var(--border);
-  transition: border-left-color .3s; cursor: default;
+  transition: border-left-color .3s, background .3s; cursor: default;
 }
 .stat-item:not(:last-child) { border-bottom: 1px solid var(--border); }
-.stat-item:hover { border-left-color: var(--blue); }
+.stat-item:hover { border-left-color: var(--blue); background: var(--bg2); }
 .stat-n { font-family: var(--ff-d); font-size: clamp(2rem,4vw,3rem); font-weight: 700; color: var(--white); line-height: 1; margin-bottom: .3rem; }
 .stat-n b { color: var(--blue); font-weight: 700; }
 .stat-l { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
@@ -69,9 +94,9 @@ h1.hero-h {
 .who-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
 .who-card {
   background: var(--surface); padding: 2.8rem 2.2rem; text-align: center;
-  transition: background .3s;
+  transition: background .3s, transform .35s ease, box-shadow .35s ease;
 }
-.who-card:hover { background: var(--bg2); }
+.who-card:hover { background: var(--bg2); transform: translateY(-5px); box-shadow: 0 22px 44px rgba(11,18,32,.07); }
 .who-ico {
   width: 52px; height: 52px; border: 1px solid var(--border); background: var(--blue-b);
   display: flex; align-items: center; justify-content: center; margin: 0 auto 1.6rem;
@@ -127,6 +152,9 @@ h1.hero-h {
 
 <!-- HERO -->
 <section id="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <canvas class="hero-3d" id="hero3d" aria-hidden="true"></canvas>
+  <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-body">
     <p class="hero-eyebrow">Real-Time Vehicle Intelligence</p>
     <h1 class="hero-h">Know where every vehicle stands.</h1>
