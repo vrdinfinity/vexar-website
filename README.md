@@ -19,7 +19,7 @@ Open `index.html` in a modern browser. Keep all files and the `assets` folder to
 - Section spacing is shared across desktop and mobile layouts, and the floating navigation uses layered translucent glass that becomes more pronounced as you scroll.
 - The About hero uses a two-way boulevard image with traffic traveling in opposite directions. Its web-ready image is `assets/about-two-way-movement.webp`.
 - The About page shows the complete founder stories in the founder section. The three equal cards select a story in place, and each has a separate LinkedIn link.
-- The Contact form validates fields and opens a populated draft in the visitor's email app. It does not submit to a server; connect a form service or backend before expecting direct form delivery.
+- The Contact form validates fields and posts them to Formspree (`CONTACT_ENDPOINT` in `app.js`), which emails the submission to the form owner. No mail app is opened.
 
 The site uses Google Fonts when available and system fonts as a fallback. The VEXAR logos were prepared from the supplied corporate brand guidelines PDF.
 

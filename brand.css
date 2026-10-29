@@ -742,3 +742,8 @@ body .vision-product-grid .grid-card p{color:rgba(255,255,255,.92) !important}
 body .vision-product-grid .grid-card{background:#17b552 !important}
 body .vision-product-grid .grid-card h3,body .vision-product-grid .grid-card .label,body .vision-product-grid .grid-card .text-link,body .vision-product-grid .grid-card .text-link .brand-name,body .vision-product-grid .grid-card .label .brand-name{color:#04210e !important}
 body .vision-product-grid .grid-card p{color:#08381a !important}
+
+/* Vision VexarGrid card: white text */
+body .vision-product-grid .grid-card h3,body .vision-product-grid .grid-card .label,body .vision-product-grid .grid-card .text-link,body .vision-product-grid .grid-card .text-link .brand-name,body .vision-product-grid .grid-card .label .brand-name,body .vision-product-grid .grid-card .text-link .asset-icon,body .vision-product-grid .grid-card .text-link svg{color:#fff !important}
+body .vision-product-grid .grid-card p{color:rgba(255,255,255,.92) !important}
+body .vision-product-grid .grid-card .label:before{background:#fff}

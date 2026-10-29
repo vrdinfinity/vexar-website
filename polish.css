@@ -106,3 +106,23 @@ body[data-page="home"] .hero .button.outline:hover{background:transparent;color:
 .menu-toggle .menu-icon{width:24px;height:24px}
 .site-footer .brand img{filter:brightness(0) invert(1)}
 .product-card:has(a.text-link){cursor:pointer}
+
+/* Header adapts to dark backgrounds underneath it */
+body .site-header.header-dark:not(.open){background:rgba(8,26,19,.78)!important;border-color:rgba(255,255,255,.14)!important;transition:background .25s,border-color .25s}
+.site-header.header-dark:not(.open) .brand img{filter:brightness(0) invert(1)}
+.site-header.header-dark:not(.open) .nav-links>.nav-link,.site-header.header-dark:not(.open) .nav-dropdown-toggle,.site-header.header-dark:not(.open) .menu-toggle{color:#fff}
+.site-header.header-dark:not(.open) .nav-links>.nav-link:hover,.site-header.header-dark:not(.open) .nav-links>.nav-link.active,.site-header.header-dark:not(.open) .nav-dropdown-toggle:hover,.site-header.header-dark:not(.open) .nav-dropdown-toggle.active{color:#7cf0a8}
+
+/* Header accent on dark backgrounds follows the page colour */
+body:not([data-page="grid"]) .site-header.header-dark:not(.open) .nav-links>.nav-link:hover,body:not([data-page="grid"]) .site-header.header-dark:not(.open) .nav-links>.nav-link.active,body:not([data-page="grid"]) .site-header.header-dark:not(.open) .nav-dropdown-toggle:hover,body:not([data-page="grid"]) .site-header.header-dark:not(.open) .nav-dropdown-toggle.active{color:#5aa9ff}
+body[data-page="go"] .site-header.header-dark:not(.open) .nav-links>.nav-link:hover,body[data-page="go"] .site-header.header-dark:not(.open) .nav-links>.nav-link.active,body[data-page="go"] .site-header.header-dark:not(.open) .nav-dropdown-toggle:hover,body[data-page="go"] .site-header.header-dark:not(.open) .nav-dropdown-toggle.active{color:#ec7cbc}
+
+/* More translucent light header */
+body .site-header:not(.header-dark):not(.open){background:rgba(255,255,255,.68)!important;-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6)}
+body[data-page="grid"] .site-header:not(.header-dark):not(.open){background:rgba(249,255,251,.68)!important}
+body[data-page="go"] .site-header:not(.header-dark):not(.open){background:rgba(255,249,252,.68)!important}
+
+/* Clearer glass effect on light backgrounds */
+body .site-header:not(.header-dark):not(.open){background:rgba(255,255,255,.20)!important;-webkit-backdrop-filter:blur(24px) saturate(1.8);backdrop-filter:blur(24px) saturate(1.8);border-color:rgba(255,255,255,.65)!important;box-shadow:0 8px 32px rgba(20,40,70,.10),inset 0 1px 0 rgba(255,255,255,.7)}
+body[data-page="grid"] .site-header:not(.header-dark):not(.open){background:rgba(244,255,248,.20)!important}
+body[data-page="go"] .site-header:not(.header-dark):not(.open){background:rgba(255,244,250,.20)!important}

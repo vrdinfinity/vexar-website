@@ -491,4 +491,4 @@ body[data-page="grid"] .audience-row .audience-card { min-height:0; }
 
 /* Technology menu: VexarGo logo tile */
 .nav-submenu .go-logo-slot { overflow:hidden; }
-.nav-submenu .go-logo-slot img { object-fit:cover; transform:scale(1.75); }
+.nav-submenu .go-logo-slot img { object-fit:contain; transform:none; border-radius:14px; }
