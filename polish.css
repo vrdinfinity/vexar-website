@@ -126,3 +126,10 @@ body[data-page="go"] .site-header:not(.header-dark):not(.open){background:rgba(2
 body .site-header:not(.header-dark):not(.open){background:rgba(255,255,255,.20)!important;-webkit-backdrop-filter:blur(24px) saturate(1.8);backdrop-filter:blur(24px) saturate(1.8);border-color:rgba(255,255,255,.65)!important;box-shadow:0 8px 32px rgba(20,40,70,.10),inset 0 1px 0 rgba(255,255,255,.7)}
 body[data-page="grid"] .site-header:not(.header-dark):not(.open){background:rgba(244,255,248,.20)!important}
 body[data-page="go"] .site-header:not(.header-dark):not(.open){background:rgba(255,244,250,.20)!important}
+
+/* Social icons */
+.social-icon{display:inline-block;width:22px;height:22px;background:currentColor;-webkit-mask:var(--icon) center/contain no-repeat;mask:var(--icon) center/contain no-repeat;vertical-align:middle}
+.footer-links.footer-social{display:flex;flex-direction:row;align-items:center;gap:22px}
+.footer-links.footer-social a{display:inline-flex;align-items:center;justify-content:center;opacity:.85;transition:opacity .2s,transform .2s}
+.footer-links.footer-social a:hover{opacity:1;transform:translateY(-2px)}
+.founder-link-inline .social-icon{width:20px;height:20px}

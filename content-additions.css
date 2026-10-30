@@ -491,4 +491,11 @@ body[data-page="grid"] .audience-row .audience-card { min-height:0; }
 
 /* Technology menu: VexarGo logo tile */
 .nav-submenu .go-logo-slot { overflow:hidden; }
-.nav-submenu .go-logo-slot img { object-fit:contain; transform:none; border-radius:14px; }
+.nav-submenu .go-logo-slot img { object-fit:contain; transform:none; border-radius:22%; }
+.nav-submenu .technology-logo-slot img { border-radius:22%; }
+
+/* Founder LinkedIn: logo only, no button */
+body .founder-card-actions .founder-link-inline,body .founder-story-rail .founder-link-inline{min-height:0;padding:0;border:0 !important;background:none !important;border-radius:6px;box-shadow:none}
+body .founder-card-actions .founder-link-inline:hover,body .founder-card-actions .founder-link-inline:focus-visible{background:none !important}
+.founder-link-inline .linkedin-badge{display:block;width:28px;height:28px;transition:transform .2s}
+.founder-link-inline:hover .linkedin-badge{transform:translateY(-2px)}

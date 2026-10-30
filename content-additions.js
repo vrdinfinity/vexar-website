@@ -219,7 +219,7 @@
     founderCards.forEach((card, index) => {
       const founderName = card.querySelector('h3')?.textContent || 'Founder';
       card.classList.add('founder-card');
-      card.insertAdjacentHTML('beforeend', `<div class="founder-card-actions"><a class="founder-link-inline" href="${founderLinks[index]}" target="_blank" rel="noopener noreferrer" aria-label="View ${founderName} on LinkedIn">LinkedIn <span class="asset-icon" style="--asset-icon:url('assets/grid-icons/ArrowUpRight.svg')" aria-hidden="true"></span></a><button type="button" class="founder-story-button" aria-controls="founder-story-stage" aria-label="View the full story of ${founderName}">View Full Story <span class="asset-icon" style="--asset-icon:url('assets/grid-icons/ArrowRight.svg')" aria-hidden="true"></span></button></div>`);
+      card.insertAdjacentHTML('beforeend', `<div class="founder-card-actions"><a class="founder-link-inline" href="${founderLinks[index]}" target="_blank" rel="noopener noreferrer" aria-label="View ${founderName} on LinkedIn"><img class="linkedin-badge" src="assets/social/linkedin-color.svg" alt="" width="28" height="28"></a><button type="button" class="founder-story-button" aria-controls="founder-story-stage" aria-label="View the full story of ${founderName}">View Full Story <span class="asset-icon" style="--asset-icon:url('assets/grid-icons/ArrowRight.svg')" aria-hidden="true"></span></button></div>`);
     });
     if (founderGrid) {
       const layout = document.createElement('div');

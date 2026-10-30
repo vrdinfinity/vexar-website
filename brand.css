@@ -747,3 +747,13 @@ body .vision-product-grid .grid-card p{color:#08381a !important}
 body .vision-product-grid .grid-card h3,body .vision-product-grid .grid-card .label,body .vision-product-grid .grid-card .text-link,body .vision-product-grid .grid-card .text-link .brand-name,body .vision-product-grid .grid-card .label .brand-name,body .vision-product-grid .grid-card .text-link .asset-icon,body .vision-product-grid .grid-card .text-link svg{color:#fff !important}
 body .vision-product-grid .grid-card p{color:rgba(255,255,255,.92) !important}
 body .vision-product-grid .grid-card .label:before{background:#fff}
+
+/* Home hero buttons: original colours with a gradient */
+body[data-page="home"] .hero-copy .button-group a[href="grid"]{background:linear-gradient(135deg,#4bf08a 0%,#1fd760 50%,#12b24a 100%) !important;border-color:#1fd760 !important}
+body[data-page="home"] .hero-copy .button-group a[href="go"]{background:linear-gradient(135deg,#dc1a92 0%,#ba006d 50%,#8f0055 100%) !important;border-color:#ba006d !important}
+body[data-page="home"] .hero-copy .button-group a[href="grid"]:hover{background:linear-gradient(135deg,#2fe074 0%,#17b653 50%,#0e9640 100%) !important}
+body[data-page="home"] .hero-copy .button-group a[href="go"]:hover{background:linear-gradient(135deg,#c4157f 0%,#96005a 50%,#730044 100%) !important}
+body[data-page="home"] .hero-copy .button-group a[href="grid"]{background:linear-gradient(135deg,#34e276 0%,#18b954 48%,#087a35 100%) !important;color:#fff !important;text-shadow:0 1px 2px rgba(0,40,15,.3)}
+body[data-page="home"] .hero-copy .button-group a[href="grid"]:hover{background:linear-gradient(135deg,#25d065 0%,#129c46 48%,#066a2d 100%) !important;color:#fff !important}
+body[data-page="home"] .hero-copy .button-group a[href="grid"] .asset-icon{color:#fff}
+body[data-page="home"] .hero-copy .button-group a[href="grid"],body[data-page="home"] .hero-copy .button-group a[href="grid"] *,body[data-page="home"] .hero-copy .button-group a[href="grid"]:hover,body[data-page="home"] .hero-copy .button-group a[href="grid"]:hover *{color:#fff !important}
