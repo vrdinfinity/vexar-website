@@ -1,0 +1,11 @@
+{
+  "name": "vexardrive-website",
+  "private": true,
+  "description": "VexarDrive Technologies website. Edit files in src/, then run `npm run build` to write the minified files used by the pages.",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.5"
+  }
+}

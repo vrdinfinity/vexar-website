@@ -1,0 +1,100 @@
+/* Expressive concept layer. All copy and brand colors remain in the base files. */
+.experience-progress { position:fixed; z-index:130; inset:0 0 auto; height:4px; pointer-events:none; background:rgba(5,117,238,.08); }
+.experience-progress span { display:block; width:100%; height:100%; transform:scaleX(var(--scroll-progress,0)); transform-origin:left; background:#0575ee; box-shadow:0 0 16px rgba(5,117,238,.35); }
+body[data-page="grid"] .experience-progress span { background:#1fd760; box-shadow:0 0 16px rgba(31,215,96,.35); }
+
+/* The hero responds to movement while the existing route and copy remain intact. */
+body[data-page="home"] .mobility-stage { transform:translate3d(var(--pointer-x,0px),var(--pointer-y,0px),0) scale(var(--scroll-scale,1.01)); transition:transform .65s cubic-bezier(.16,.7,.25,1); }
+.hero-beacon { position:absolute; z-index:1; width:21px; height:21px; border:1px solid rgba(187,224,248,.7); border-radius:50%; transform:translate(-50%,-50%) scale(.5); opacity:0; pointer-events:none; transition:opacity .3s,transform .3s; box-shadow:0 0 0 14px rgba(5,117,238,.09),0 0 0 38px rgba(5,117,238,.035); }
+.hero-beacon::after { content:""; position:absolute; inset:7px; border-radius:50%; background:#8ec7ff; }
+.hero-beacon.is-visible { opacity:.75; transform:translate(-50%,-50%) scale(1); }
+.immersive-hero .hero-scrim { background:linear-gradient(90deg,rgba(12,21,26,.95) 0%,rgba(12,21,26,.82) 36%,rgba(12,21,26,.28) 100%),linear-gradient(0deg,rgba(12,21,26,.49),transparent 35%); }
+.immersive-hero .hero-copy h1 { text-shadow:0 18px 46px rgba(0,0,0,.22); }
+.immersive-hero .hero-meta::before { content:""; position:absolute; left:0; bottom:-16px; width:100%; height:1px; background:linear-gradient(90deg,rgba(255,255,255,.45),transparent); transform-origin:left; animation:hero-line-in 1.8s 1s both; }
+@keyframes hero-line-in { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+
+/* Scroll makes the idea statement expand before the product reveal. */
+.story-bridge { position:relative; overflow:hidden; min-height:clamp(510px,70svh,720px); }
+.story-bridge::before { content:""; position:absolute; width:min(55vw,760px); aspect-ratio:1; border:1px solid rgba(255,255,255,.1); border-radius:50%; top:-18%; right:-15%; box-shadow:0 0 0 105px rgba(255,255,255,.018),0 0 0 230px rgba(255,255,255,.01); transform:translateY(var(--bridge-ring-shift,0px)) scale(var(--bridge-ring-scale,.85)); transition:transform .12s linear; pointer-events:none; }
+.story-bridge .statement-large { transform:translateY(var(--bridge-lift,0px)); transition:transform .16s linear; }
+.story-bridge .statement-side { transform:translateY(var(--bridge-side-lift,0px)); transition:transform .16s linear; }
+.story-bridge .bridge-fill { box-shadow:0 0 23px rgba(5,117,238,.65); }
+
+/* The carousel has a clear active card and a restrained 3D response. */
+.home-products { overflow:hidden; }
+.home-products .carousel-viewport { overflow-x:auto; padding:18px 0 35px; perspective:1400px; }
+.home-products .carousel-track > .product-card { transform:perspective(1400px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) scale(.965); opacity:.76; filter:saturate(.84); transform-origin:center; transition:transform .6s cubic-bezier(.18,.75,.18,1),opacity .5s,filter .5s,box-shadow .5s; }
+.home-products .carousel-track > .product-card.is-current { transform:perspective(1400px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) scale(1); opacity:1; filter:none; box-shadow:0 24px 65px rgba(17,48,65,.16); }
+.home-products .carousel-track > .product-card:hover { transform:perspective(1400px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) scale(1); }
+.home-products .carousel-track > .product-card::before { content:""; position:absolute; inset:0; z-index:2; background:radial-gradient(circle at var(--shine-x,50%) var(--shine-y,50%),rgba(255,255,255,.15),transparent 42%); opacity:0; pointer-events:none; transition:opacity .3s; }
+.home-products .carousel-track > .product-card:hover::before { opacity:1; }
+.home-products .carousel-track .go-card .product-icon { animation:go-icon-float 5.5s ease-in-out infinite; }
+@keyframes go-icon-float { 50% { transform:rotate(1deg) translateY(-16px); } }
+.carousel-tabs .is-active { letter-spacing:.14em; }
+.carousel-controls { position:relative; }
+.carousel-controls::before { content:""; position:absolute; top:-2px; left:0; width:50%; height:2px; background:rgba(5,117,238,.35); pointer-events:none; }
+
+/* Existing foundation copy becomes a selectable route system. */
+body[data-page="home"] .mini-list { --route-progress:0; }
+.foundation-route { position:relative; height:190px; margin-bottom:12px; overflow:hidden; border-radius:11px; border:1px solid #c5d9e8; background:linear-gradient(145deg,#f7fbff,#e3f0f8); box-shadow:inset 0 0 45px rgba(5,117,238,.04); }
+.foundation-route svg { display:block; width:100%; height:100%; }
+.foundation-grid { fill:none; stroke:#cce0ea; stroke-width:1; }
+.foundation-base { fill:none; stroke:#8db4cc; stroke-width:5; stroke-linecap:round; }
+.foundation-active { fill:none; stroke:#0575ee; stroke-width:6; stroke-linecap:round; stroke-dasharray:100; stroke-dashoffset:calc(100 - var(--route-progress)); }
+.foundation-nodes circle { fill:#f9fcff; stroke:#0575ee; stroke-width:3; }
+.foundation-marker { fill:#0575ee; stroke:#fff; stroke-width:5; filter:drop-shadow(0 6px 7px rgba(5,117,238,.3)); }
+.foundation-readout { position:absolute; left:18px; right:18px; top:15px; display:flex; justify-content:space-between; color:#0758b5; font-size:.65rem; font-weight:800; letter-spacing:.16em; }
+body[data-page="home"] .mini-list > div:not(.foundation-route) { cursor:pointer; padding-inline:13px; border-radius:5px; transition:background .3s,transform .3s,border-color .3s; }
+body[data-page="home"] .mini-list > div:not(.foundation-route):hover,
+body[data-page="home"] .mini-list > div:not(.foundation-route):focus-visible,
+body[data-page="home"] .mini-list > div.is-active { background:rgba(255,255,255,.75); transform:translateX(7px); border-color:#a9c9df; outline:none; }
+body[data-page="home"] .mini-list > div.is-active span { color:#0575ee; }
+
+/* GRID is a step-by-step story that can also be explored directly. */
+.workflow-story .story-step { cursor:pointer; border-radius:0 7px 7px 0; }
+.workflow-story .story-step:hover,.workflow-story .story-step:focus-visible { opacity:1; background:rgba(31,215,96,.055); outline:2px solid rgba(31,215,96,.45); outline-offset:2px; }
+.workflow-story .story-step.active { background:rgba(31,215,96,.08); }
+.story-visual { transition:box-shadow .5s,transform .5s; }
+.story-visual:hover { box-shadow:0 40px 85px rgba(17,45,29,.24); transform:translateY(-3px); }
+.story-alert { animation:story-alert-enter .6s both cubic-bezier(.18,.7,.18,1); }
+.story-visual[data-step="1"] .story-alert,.story-visual[data-step="2"] .story-alert { animation:story-alert-enter .6s both cubic-bezier(.18,.7,.18,1),story-alert-pulse 3s infinite; }
+@keyframes story-alert-enter { from { transform:translateY(-12px); opacity:0; } to { transform:none; opacity:1; } }
+@keyframes story-alert-pulse { 50% { border-color:rgba(255,189,79,.65); } }
+.grid-editorial,.go-editorial { isolation:isolate; }
+.grid-editorial::after,.go-editorial::after { content:""; position:absolute; inset:0; background:linear-gradient(112deg,transparent 36%,rgba(255,255,255,.15) 50%,transparent 64%); transform:translateX(-130%); transition:transform 1.2s; pointer-events:none; }
+.grid-editorial:hover::after,.go-editorial:hover::after { transform:translateX(130%); }
+
+/* A shared kinetic rhythm on secondary pages and interactive cards. */
+.page-hero { position:relative; min-height:clamp(560px,70svh,760px); display:flex; align-items:center; }
+.page-hero::after { content:""; position:absolute; inset:0; pointer-events:none; opacity:.24; background:linear-gradient(120deg,transparent 30%,rgba(5,117,238,.07) 47%,transparent 64%); background-size:250% 100%; animation:hero-sweep 12s linear infinite; }
+.page-hero.grid-page::after { background:linear-gradient(120deg,transparent 30%,rgba(31,215,96,.08) 47%,transparent 64%); background-size:250% 100%; }
+@keyframes hero-sweep { to { background-position:-250% 0; } }
+.page-hero .page-hero-mark { animation:mark-drift 16s ease-in-out infinite alternate; }
+@keyframes mark-drift { to { transform:translate(-80px,65px) scale(1.12); } }
+.page-hero h1 { animation:secondary-hero-enter 1.1s .1s both cubic-bezier(.16,.7,.2,1); }
+.page-hero .lead { animation:secondary-hero-enter 1.1s .25s both cubic-bezier(.16,.7,.2,1); }
+.page-hero .button-group { animation:secondary-hero-enter 1.1s .4s both cubic-bezier(.16,.7,.2,1); }
+@keyframes secondary-hero-enter { from { opacity:0; transform:translateY(38px); clip-path:inset(0 0 28% 0); } to { opacity:1; transform:none; clip-path:inset(0); } }
+.audience-card,.feature-card,.founder,.capability,.soft-panel { transition:transform .45s cubic-bezier(.18,.75,.18,1),box-shadow .45s,border-color .45s; }
+.kinetic-panel { opacity:0; translate:0 44px; filter:blur(6px); transition:opacity .75s var(--enter-delay,0ms),translate .9s var(--enter-delay,0ms) cubic-bezier(.16,.75,.2,1),filter .8s var(--enter-delay,0ms),transform .45s,box-shadow .45s,border-color .45s; }
+.kinetic-panel.is-visible { opacity:1; translate:0 0; filter:none; }
+.audience-card:hover,.feature-card:hover,.founder:hover,.capability:hover { transform:translateY(-8px); box-shadow:0 22px 40px rgba(15,58,82,.1); border-color:#a6c8dd; }
+.soft-panel:hover { transform:translateY(-4px); box-shadow:0 24px 50px rgba(15,58,82,.09); }
+.button .arrow,.text-link .arrow { transition:transform .3s cubic-bezier(.2,.75,.2,1); }
+.button:hover .arrow,.button:focus-visible .arrow,.text-link:hover .arrow { transform:translate(3px,-3px); }
+
+@media(max-width:760px) {
+  .immersive-hero .hero-scrim { background:linear-gradient(180deg,rgba(12,21,26,.95),rgba(12,21,26,.78) 48%,rgba(12,21,26,.17)); }
+  .story-bridge { min-height:620px; }
+  .home-products .carousel-track > .product-card { transform:none; opacity:1; filter:none; }
+  .home-products .carousel-track > .product-card.is-current { transform:none; }
+  .home-products .carousel-track > .product-card:hover { transform:none; }
+  .page-hero { min-height:480px; }
+  .foundation-route { position:sticky; z-index:7; top:74px; height:155px; box-shadow:0 16px 35px rgba(19,71,103,.13); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .experience-progress span,.immersive-hero .hero-meta::before,.foundation-active,.foundation-marker,.home-products .carousel-track > .product-card,.page-hero .page-hero-mark,.page-hero h1,.page-hero .lead,.page-hero .button-group,.page-hero::after,.home-products .carousel-track .go-card .product-icon,.story-alert { animation:none!important; transition:none!important; }
+  .story-bridge .statement-large,.story-bridge .statement-side { transform:none; }
+  .hero-beacon { display:none; }
+  .kinetic-panel { opacity:1; translate:none; filter:none; }
+}

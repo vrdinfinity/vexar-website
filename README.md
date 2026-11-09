@@ -36,3 +36,11 @@ Pages link to `/grid`, `/go`, `/about`, `/vision` and `/contact`. Most hosts ser
 - **nginx:** add `location / { try_files $uri $uri.html $uri/ =404; }`.
 
 Opening the files directly from disk (`file://`) or with a plain static server will not resolve `/grid`; use a host above or `python3 serve.py` below.
+
+## Editing CSS and JavaScript
+
+The files the pages load (`app.js`, `site.css`, …) in the project root are **minified build output**. Do not edit them by hand.
+
+1. Edit the readable sources in `src/`.
+2. Run `npm install` once, then `npm run build`. This rewrites the minified files in the root and updates the `?v=` cache-busting hash on every asset in the HTML pages.
+3. Commit `src/`, the rebuilt root files and the HTML pages.
